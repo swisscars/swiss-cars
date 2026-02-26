@@ -33,9 +33,31 @@ DO $$ BEGIN
   END IF;
 END $$;
 
--- 3. Ensure leads_inquiries has is_important column
+-- 3. Ensure leads_inquiries and subscribers tables exist
 ALTER TABLE leads_inquiries
   ADD COLUMN IF NOT EXISTS is_important BOOLEAN DEFAULT false;
+
+CREATE TABLE IF NOT EXISTS subscribers (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    email VARCHAR(255) UNIQUE NOT NULL,
+    is_active BOOLEAN DEFAULT true,
+    subscribed_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    unsubscribed_at TIMESTAMP WITH TIME ZONE
+);
+
+ALTER TABLE subscribers ENABLE ROW LEVEL SECURITY;
+
+DO $$ BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE tablename = 'subscribers' AND policyname = 'Anyone can subscribe') THEN
+    CREATE POLICY "Anyone can subscribe" ON subscribers FOR INSERT TO anon WITH CHECK (true);
+  END IF;
+END $$;
+
+DO $$ BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE tablename = 'subscribers' AND policyname = 'Authenticated users can manage subscribers') THEN
+    CREATE POLICY "Authenticated users can manage subscribers" ON subscribers FOR ALL TO authenticated USING (true) WITH CHECK (true);
+  END IF;
+END $$;
 
 DO $$ BEGIN
   IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE tablename = 'leads_inquiries' AND policyname = 'Allow authenticated updates on leads_inquiries') THEN

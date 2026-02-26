@@ -40,7 +40,9 @@ export default async function CarDetailPage({ params }: Props) {
 
     const getTranslatedDescription = () => {
         if (!car.description) return '';
-        return (car.description as any)[locale] || (car.description as any)['ro'] || '';
+        if (typeof car.description === 'string') return car.description;
+        const desc = car.description as any;
+        return desc[locale] || desc['ro'] || '';
     };
 
     return (

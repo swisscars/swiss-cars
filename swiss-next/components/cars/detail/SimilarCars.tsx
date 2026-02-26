@@ -13,13 +13,16 @@ export default async function SimilarCars({ currentCarId, brand, price }: Props)
 
     // Find similar: same brand first, then similar price range (±30%)
     const sameBrand = allCars.filter(
-        (c) => c.id !== currentCarId && c.brand.toLowerCase() === brand.toLowerCase()
+        (c) => c.id !== currentCarId &&
+            c.brand &&
+            brand &&
+            c.brand.toLowerCase() === brand.toLowerCase()
     );
 
     const priceRange = allCars.filter(
         (c) =>
             c.id !== currentCarId &&
-            c.brand.toLowerCase() !== brand.toLowerCase() &&
+            (!c.brand || !brand || c.brand.toLowerCase() !== brand.toLowerCase()) &&
             c.price >= price * 0.7 &&
             c.price <= price * 1.3
     );

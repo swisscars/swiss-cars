@@ -26,7 +26,7 @@ export default function ServicesSectionClient({
     const [active, setActive] = useState(0);
 
     return (
-        <section className={styles.section} id="services">
+        <section className={`${styles.section} section--dark`} id="services">
             <div className={styles.container}>
                 {/* Left image panel */}
                 <div className={styles.imagePanel}>
