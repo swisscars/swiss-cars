@@ -1,0 +1,161 @@
+.main {
+    padding: 80px 0 80px;
+    background: var(--color-gray);
+    min-height: 100vh;
+}
+
+.premiumHeader {
+    background: var(--color-dark);
+    padding: 30px 0 30px;
+    margin-bottom: 40px;
+    border-bottom: 3px solid var(--color-primary);
+}
+
+.breadcrumb {
+    color: var(--color-text-muted);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.breadcrumb a {
+    color: var(--color-white);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.breadcrumb a:hover {
+    color: var(--color-primary);
+}
+
+
+.layout {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+@media (max-width: 991px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.sectionTitle {
+    font-family: var(--font-primary);
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--color-dark);
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    padding-left: 15px;
+}
+
+.sectionTitle::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--color-primary);
+}
+
+.description {
+    background: var(--color-white);
+    padding: 30px;
+    border-radius: var(--radius-lg);
+    line-height: 1.8;
+    color: var(--color-text-light);
+    font-size: 15px;
+    border: 1px solid var(--color-gray-2);
+}
+
+.sticky {
+    position: sticky;
+    top: 80px;
+}
+
+.card {
+    background: var(--color-white);
+    padding: 30px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--color-gray-2);
+}
+
+.title {
+    font-family: var(--font-primary);
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--color-dark);
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+.year {
+    font-family: var(--font-primary);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 24px;
+}
+
+.priceWrapper {
+    background: var(--color-gray);
+    padding: 24px;
+    border-radius: var(--radius-md);
+    margin-bottom: 30px;
+}
+
+.priceLabel {
+    font-size: 12px;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.price {
+    font-family: var(--font-primary);
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--color-dark);
+}
+
+.taxes {
+    font-size: 12px;
+    color: var(--color-text-muted);
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contactTitle {
+    font-family: var(--font-primary);
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--color-dark);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.contactSubtitle {
+    font-size: 13px;
+    color: var(--color-text-muted);
+    margin-bottom: 20px;
+    line-height: 1.5;
+}

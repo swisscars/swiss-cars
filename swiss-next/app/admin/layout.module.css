@@ -1,0 +1,51 @@
+.layout {
+    display: flex;
+    min-height: 100vh;
+    background: var(--color-gray);
+}
+
+.main {
+    flex: 1;
+    margin-left: 260px;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    height: 70px;
+    background: white;
+    border-bottom: 1px solid var(--color-gray-2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    position: sticky;
+    top: 0;
+    z-index: 90;
+}
+
+.headerTitle {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--color-dark);
+}
+
+.userInfo {
+    display: flex;
+    align-items: center;
+}
+
+.userRole {
+    background: var(--color-gray);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-text-muted);
+}
+
+.content {
+    padding: 40px;
+    flex: 1;
+}
