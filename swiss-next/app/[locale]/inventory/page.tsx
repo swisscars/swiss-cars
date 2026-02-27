@@ -34,7 +34,7 @@ export default async function InventoryPage({ searchParams }: Props) {
     });
 
     return (
-        <main style={{ paddingTop: '66px', minHeight: '80vh', background: 'var(--color-bg)' }}>
+        <main style={{ paddingTop: 'var(--header-height)', minHeight: '80vh', background: 'var(--color-bg)' }}>
             <div className="container" style={{ marginBottom: '40px' }}>
                 <h1 className="ui-title" style={{ marginTop: '20px' }}>{t('all_cars_title') || 'Inventory'}</h1>
                 <p style={{ color: 'var(--color-text-muted)', marginTop: '10px' }}>

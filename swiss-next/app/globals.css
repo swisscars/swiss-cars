@@ -26,6 +26,7 @@
   /* Spacing */
   --section-padding: 80px 0;
   --container-max: 1200px;
+  --header-height: 100px;
 
   /* Transitions */
   --transition-fast: 0.2s ease;
@@ -364,6 +365,7 @@ textarea {
 @media (max-width: 768px) {
   :root {
     --section-padding: 60px 0;
+    --header-height: 80px;
   }
 
   .ui-title {

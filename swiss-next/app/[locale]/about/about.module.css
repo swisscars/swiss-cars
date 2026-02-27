@@ -3,7 +3,7 @@
    ─────────────────────────────────────── */
 
 .main {
-    padding-top: 66px;
+    padding-top: var(--header-height);
     background: var(--color-white);
 }
 

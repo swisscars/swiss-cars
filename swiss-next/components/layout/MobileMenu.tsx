@@ -67,18 +67,24 @@ export default function MobileMenu({ isOpen, onClose, navLinks, locale, pathname
                 <div className={styles.langSection}>
                     <span className={styles.langLabel}>Language</span>
                     <div className={styles.langButtons}>
-                        <Link href={pathname} locale="ro" className={`${styles.langBtn} ${locale === 'ro' ? styles.langActive : ''}`}>
-                            <Image src="/media/general/romanian-flag.png" alt="RO" width={24} height={18} />
-                            <span>Română</span>
-                        </Link>
-                        <Link href={pathname} locale="ru" className={`${styles.langBtn} ${locale === 'ru' ? styles.langActive : ''}`}>
-                            <Image src="/media/general/russian.png" alt="RU" width={24} height={18} />
-                            <span>Русский</span>
-                        </Link>
-                        <Link href={pathname} locale="en" className={`${styles.langBtn} ${locale === 'en' ? styles.langActive : ''}`}>
-                            <Image src="/media/general/uk.png" alt="EN" width={24} height={18} />
-                            <span>English</span>
-                        </Link>
+                        {locale !== 'ro' && (
+                            <Link href={pathname} locale="ro" className={styles.langBtn}>
+                                <Image src="/media/general/romanian-flag.png" alt="RO" width={24} height={18} />
+                                <span>Română</span>
+                            </Link>
+                        )}
+                        {locale !== 'ru' && (
+                            <Link href={pathname} locale="ru" className={styles.langBtn}>
+                                <Image src="/media/general/russian.png" alt="RU" width={24} height={18} />
+                                <span>Русский</span>
+                            </Link>
+                        )}
+                        {locale !== 'en' && (
+                            <Link href={pathname} locale="en" className={styles.langBtn}>
+                                <Image src="/media/general/uk.png" alt="EN" width={24} height={18} />
+                                <span>English</span>
+                            </Link>
+                        )}
                     </div>
                 </div>
 
