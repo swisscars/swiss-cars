@@ -14,14 +14,14 @@ export default async function AdminDashboard() {
             value: stats.totalCars.toString(),
             icon: Car,
             color: '#e71a1c',
-            href: '/admin/cars'
+            href: '/admin/inventory'
         },
         {
             label: 'Available',
             value: stats.availableCars.toString(),
             icon: CheckCircle,
             color: '#2ecc71',
-            href: '/admin/cars'
+            href: '/admin/inventory'
         },
         {
             label: 'New Leads',
@@ -118,7 +118,7 @@ export default async function AdminDashboard() {
                         <h2>Quick Actions</h2>
                     </div>
                     <div className={styles.quickActions}>
-                        <Link href="/admin/cars/new" className={styles.actionButton}>
+                        <Link href="/admin/inventory/new" className={styles.actionButton}>
                             <Car size={20} />
                             Add New Car
                         </Link>

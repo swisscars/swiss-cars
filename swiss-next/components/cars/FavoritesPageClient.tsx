@@ -34,7 +34,7 @@ export default function FavoritesPageClient({ allCars }: { allCars: Car[] }) {
     };
 
     return (
-        <main style={{ paddingTop: '80px', paddingBottom: '80px', minHeight: '80vh', background: 'var(--color-bg)' }}>
+        <main style={{ paddingTop: '66px', paddingBottom: '80px', minHeight: '80vh', background: 'var(--color-bg)' }}>
             <div className="container">
                 <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '50px' }}>
                     <Heart size={36} color="var(--color-primary)" fill="var(--color-primary)" />
@@ -57,7 +57,7 @@ export default function FavoritesPageClient({ allCars }: { allCars: Car[] }) {
                         <p style={{ color: 'var(--color-text-muted)', marginBottom: '30px' }}>
                             {t('empty_text')}
                         </p>
-                        <Link href="/allcars" className="btn btn-primary">{t('explore')}</Link>
+                        <Link href="/inventory" className="btn btn-primary">{t('explore')}</Link>
                     </div>
                 ) : (
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '24px' }}>
@@ -75,7 +75,7 @@ export default function FavoritesPageClient({ allCars }: { allCars: Car[] }) {
                                         <X size={16} />
                                     </button>
 
-                                    <Link href={`/allcars/${car.slug}`}>
+                                    <Link href={`/inventory/${car.slug}`}>
                                         <div style={{ position: 'relative', height: '200px' }}>
                                             <Image src={imageUrl} alt={`${car.brand} ${car.model}`} fill style={{ objectFit: 'cover' }} />
                                             <div style={{ position: 'absolute', bottom: '12px', left: '12px', background: 'var(--color-primary)', color: 'white', padding: '5px 12px', borderRadius: '4px', fontSize: '14px', fontWeight: '800', fontFamily: 'var(--font-primary)' }}>
@@ -91,7 +91,7 @@ export default function FavoritesPageClient({ allCars }: { allCars: Car[] }) {
                                         <p style={{ fontSize: '13px', color: 'var(--color-text-muted)', marginBottom: '16px' }}>
                                             {car.year} · {car.fuel_type} · {car.transmission}
                                         </p>
-                                        <Link href={`/allcars/${car.slug}`} style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'var(--color-primary)', fontWeight: '700', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                                        <Link href={`/inventory/${car.slug}`} style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'var(--color-primary)', fontWeight: '700', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                                             {t('view_details')} →
                                         </Link>
                                     </div>

@@ -81,6 +81,15 @@
     flex-shrink: 0;
 }
 
+.avatarImg {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 2px solid var(--color-primary);
+}
+
 .name {
     font-family: var(--font-primary);
     font-size: 13px;

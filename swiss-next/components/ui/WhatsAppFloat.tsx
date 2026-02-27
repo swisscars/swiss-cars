@@ -1,6 +1,8 @@
 import styles from './WhatsAppFloat.module.css';
 
-export default function WhatsAppFloat({ phone }: { phone: string }) {
+export default function WhatsAppFloat({ phone }: { phone?: string }) {
+    if (!phone) return null;
+
     const clean = phone.replace(/[^0-9]/g, '');
     return (
         <a

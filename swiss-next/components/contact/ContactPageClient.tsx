@@ -7,7 +7,25 @@ import styles from './ContactPageClient.module.css';
 
 type FormType = 'contact' | 'testdrive';
 
-export default function ContactPageClient() {
+type Props = {
+    phoneNumber?: string;
+    whatsapp?: string;
+    emailAddress?: string;
+    address?: string;
+    workingHours?: string;
+    workingDaysClosed?: string;
+    googleMapsEmbed?: string;
+};
+
+export default function ContactPageClient({
+    phoneNumber,
+    whatsapp,
+    emailAddress,
+    address,
+    workingHours,
+    workingDaysClosed,
+    googleMapsEmbed,
+}: Props) {
     const t = useTranslations('contact_page');
     const tError = useTranslations('errors');
     const [formType, setFormType] = useState<FormType>('contact');
@@ -60,24 +78,34 @@ export default function ContactPageClient() {
                     <div className={styles.infoCard}>
                         <div className={styles.iconWrap}><MapPin size={26} color="var(--color-primary)" /></div>
                         <h3>{t('location')}</h3>
-                        <p>Chișinău, Republica Moldova</p>
+                        <p>{address || <span style={{ color: '#dc2626' }}>⚠️ Adresa lipsește din setări</span>}</p>
                     </div>
                     <div className={styles.infoCard}>
                         <div className={styles.iconWrap}><Phone size={26} color="var(--color-primary)" /></div>
                         <h3>{t('phone')}</h3>
-                        <p><a href="tel:+41783233150">+41 78 323 31 50</a></p>
-                        <small>WhatsApp · Viber · Telegram</small>
+                        {phoneNumber ? (
+                            <>
+                                <p><a href={`tel:${phoneNumber.replace(/\s/g, '')}`}>{phoneNumber}</a></p>
+                                <small>WhatsApp · Viber · Telegram</small>
+                            </>
+                        ) : (
+                            <p style={{ color: '#dc2626' }}>⚠️ Telefon lipsește din setări</p>
+                        )}
                     </div>
                     <div className={styles.infoCard}>
                         <div className={styles.iconWrap}><Mail size={26} color="var(--color-primary)" /></div>
                         <h3>{t('email')}</h3>
-                        <p><a href="mailto:info@swisscars.md">info@swisscars.md</a></p>
+                        {emailAddress ? (
+                            <p><a href={`mailto:${emailAddress}`}>{emailAddress}</a></p>
+                        ) : (
+                            <p style={{ color: '#dc2626' }}>⚠️ Email lipsește din setări</p>
+                        )}
                     </div>
                     <div className={styles.infoCard}>
                         <div className={styles.iconWrap}><Clock size={26} color="var(--color-primary)" /></div>
                         <h3>{t('schedule')}</h3>
-                        <p>{t('schedule_days')}<br />{t('schedule_hours')}</p>
-                        <small>{t('schedule_sunday')}</small>
+                        <p>{workingHours || <span style={{ color: '#dc2626' }}>⚠️ Program lipsește</span>}</p>
+                        {workingDaysClosed && <small>{workingDaysClosed}</small>}
                     </div>
                 </div>
 
@@ -163,31 +191,37 @@ export default function ContactPageClient() {
                             <div className={styles.waIcon}>💬</div>
                             <h3>{t('quick_contact')}</h3>
                             <p>{t('quick_contact_text')}</p>
-                            <a
-                                href="https://wa.me/41783233150?text=Buna ziua! As dori informatii despre..."
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className={styles.waBtn}
-                            >
-                                WhatsApp +41 78 323 31 50
-                            </a>
+                            {whatsapp ? (
+                                <a
+                                    href={`https://wa.me/${whatsapp.replace(/[^0-9]/g, '')}?text=Buna ziua! As dori informatii despre...`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={styles.waBtn}
+                                >
+                                    WhatsApp {phoneNumber || whatsapp}
+                                </a>
+                            ) : (
+                                <p style={{ color: '#dc2626', fontSize: '14px' }}>⚠️ WhatsApp lipsește din setări</p>
+                            )}
                         </div>
                     </div>
                 </div>
             </div>
 
             {/* Map */}
-            <div className={styles.mapWrap}>
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d91026.48988013208!2d28.753993!3d47.0245117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c97c3628b769a1%3A0x37d1d6305749fd3c!2sChisinau%2C%20Moldova!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen={true}
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                />
-            </div>
+            {googleMapsEmbed && (
+                <div className={styles.mapWrap}>
+                    <iframe
+                        src={googleMapsEmbed}
+                        width="100%"
+                        height="100%"
+                        style={{ border: 0 }}
+                        allowFullScreen={true}
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                    />
+                </div>
+            )}
         </main>
     );
 }

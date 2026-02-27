@@ -10,7 +10,7 @@ export default async function ContactBanner() {
     const homepageData = await getSettings('homepage_content') || {};
     const data = homepageData.contact_banner || null;
 
-    const phone = settings.phone || '+41 78 323 31 50';
+    const phone = settings.phone;
 
     const getText = (translations?: Record<string, string>, fallbackKey?: string) => {
         if (translations && translations[locale]) return translations[locale];
@@ -40,12 +40,18 @@ export default async function ContactBanner() {
                             </div>
                             <div>
                                 <p className={styles.question}>{question}</p>
-                                <a href={`tel:${phone}`} className={styles.phoneNumber}>{phone}</a>
+                                {phone ? (
+                                    <a href={`tel:${phone}`} className={styles.phoneNumber}>{phone}</a>
+                                ) : (
+                                    <span style={{ color: '#dc2626' }}>⚠️ Telefon lipsește din setări</span>
+                                )}
                             </div>
                         </div>
-                        <a href={`tel:${phone}`} className={`btn btn-secondary ${styles.cta}`}>
-                            {cta}
-                        </a>
+                        {phone && (
+                            <a href={`tel:${phone}`} className={`btn btn-secondary ${styles.cta}`}>
+                                {cta}
+                            </a>
+                        )}
                     </div>
                 </div>
             </div>

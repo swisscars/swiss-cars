@@ -1,6 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { z } from 'zod';
 import { createClient } from '@/lib/supabase/server';
 import { checkRateLimit, getClientIp } from '@/lib/utils/rateLimit';
+
+const ContactSchema = z.object({
+    name: z.string().min(2, 'Name must be at least 2 characters').max(100, 'Name too long').trim(),
+    phone: z.string().regex(/^\+?[\d\s\-()]{7,20}$/, 'Invalid phone number format'),
+    email: z.string().email('Invalid email format').max(255).optional().or(z.literal('')),
+    message: z.string().max(5000, 'Message too long').optional(),
+    preferredDate: z.string().max(50).optional(),
+    formType: z.enum(['contact', 'inquiry', 'callback']).optional().default('contact'),
+});
 
 export async function POST(req: NextRequest) {
     try {
@@ -25,11 +35,15 @@ export async function POST(req: NextRequest) {
         }
 
         const body = await req.json();
-        const { name, phone, email, message, preferredDate, formType } = body;
 
-        if (!name || !phone) {
-            return NextResponse.json({ error: 'Name and phone are required' }, { status: 400 });
+        // Validate input with Zod
+        const validation = ContactSchema.safeParse(body);
+        if (!validation.success) {
+            const errors = validation.error.issues.map(e => e.message).join(', ');
+            return NextResponse.json({ error: errors }, { status: 400 });
         }
+
+        const { name, phone, email, message, preferredDate, formType } = validation.data;
 
         const supabase = await createClient();
 

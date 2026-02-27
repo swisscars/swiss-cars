@@ -143,7 +143,7 @@ export default async function AboutPage() {
                 <div className="container">
                     <h2 className={styles.ctaTitle}>{t('cta_title')}</h2>
                     <div className={styles.ctaButtons}>
-                        <Link href="/allcars" className="btn btn-primary btn-lg">
+                        <Link href="/inventory" className="btn btn-primary btn-lg">
                             {t('cta_button')} <ChevronRight size={18} />
                         </Link>
                         <Link href="/contact" className="btn btn-outline btn-lg">

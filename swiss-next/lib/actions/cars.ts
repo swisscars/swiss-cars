@@ -72,9 +72,9 @@ export async function saveCar(carData: Car & { car_images?: { url: string, is_pr
         if (imgError) throw imgError;
     }
 
-    revalidatePath('/admin/cars');
-    revalidatePath('/[locale]/cars', 'page');
-    revalidatePath('/[locale]/cars/[slug]', 'page');
+    revalidatePath('/admin/inventory');
+    revalidatePath('/[locale]/inventory', 'page');
+    revalidatePath('/[locale]/inventory/[slug]', 'page');
 
     return { success: true, id: carId };
 }
@@ -89,6 +89,6 @@ export async function deleteCar(id: string) {
 
     if (error) throw error;
 
-    revalidatePath('/admin/cars');
+    revalidatePath('/admin/inventory');
     return { success: true };
 }

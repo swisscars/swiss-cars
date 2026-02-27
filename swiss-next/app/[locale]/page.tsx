@@ -24,15 +24,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     // Fetch settings for SEO
     const siteConfig = await getSettings('site_config') || {};
-    const titles: Record<string, string> = {
-        ro: siteConfig.site_title || 'SwissCars.md — Transport auto din Elveția',
-        ru: siteConfig.site_title || 'SwissCars.md — Автомобили из Швейцарии',
-        en: siteConfig.site_title || 'SwissCars.md — Cars from Switzerland',
-    };
 
     return {
-        title: titles[locale] || titles.ro,
-        description: siteConfig.site_description || 'Dealer autorizat de mașini din Elveția',
+        title: siteConfig.site_title || undefined,
+        description: siteConfig.site_description || undefined,
     };
 }
 
@@ -40,12 +35,14 @@ export default async function HomePage({ params }: Props) {
     const { locale } = await params;
 
     // Fetch data from Supabase (server-side)
-    const [cars, reviews, partners, homepageData] = await Promise.all([
+    const [cars, reviews, partners, homepageData, siteConfig] = await Promise.all([
         getFeaturedCars(),
         getReviews(),
         getPartners(),
-        getSettings('homepage_content')
+        getSettings('homepage_content'),
+        getSettings('site_config')
     ]);
+    const phone = (siteConfig as any)?.phone;
 
     return (
         <>
@@ -76,7 +73,7 @@ export default async function HomePage({ params }: Props) {
             </Reveal>
 
             <Reveal>
-                <DualCTABanner />
+                <DualCTABanner phone={phone} />
             </Reveal>
 
             <Reveal>

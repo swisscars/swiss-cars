@@ -14,9 +14,10 @@ type Props = {
     navLinks: NavLink[];
     locale: string;
     pathname: string;
+    phone?: string;
 };
 
-export default function MobileMenu({ isOpen, onClose, navLinks, locale, pathname }: Props) {
+export default function MobileMenu({ isOpen, onClose, navLinks, locale, pathname, phone }: Props) {
     // Lock body scroll when menu is open
     useEffect(() => {
         if (isOpen) {
@@ -81,14 +82,16 @@ export default function MobileMenu({ isOpen, onClose, navLinks, locale, pathname
                     </div>
                 </div>
 
-                <div className={styles.phone}>
-                    <a href="tel:+41783233150" className={styles.phoneLink}>
-                        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-                            <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" />
-                        </svg>
-                        (+41) 78 323 31 50
-                    </a>
-                </div>
+                {phone && (
+                    <div className={styles.phone}>
+                        <a href={`tel:${phone.replace(/\s/g, '')}`} className={styles.phoneLink}>
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                                <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" />
+                            </svg>
+                            {phone}
+                        </a>
+                    </div>
+                )}
             </div>
         </>
     );

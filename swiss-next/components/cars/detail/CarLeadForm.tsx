@@ -15,7 +15,7 @@ type Props = {
     whatsappNumber?: string;
 };
 
-export default function CarLeadForm({ carId, carName, carPrice, phoneNumber = '+41783233150', whatsappNumber = '41783233150' }: Props) {
+export default function CarLeadForm({ carId, carName, carPrice, phoneNumber, whatsappNumber }: Props) {
     const t = useTranslations('errors');
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
@@ -47,21 +47,27 @@ export default function CarLeadForm({ carId, carName, carPrice, phoneNumber = '+
     return (
         <div className={styles.wrapper}>
             {/* Quick Actions */}
-            <div className={styles.quickActions}>
-                <a href={`tel:${phoneNumber}`} className={styles.callBtn}>
-                    <Phone size={18} />
-                    <span>{phoneNumber}</span>
-                </a>
-                <a
-                    href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Bună ziua! Sunt interesat de: ${carName} (${formatPrice(carPrice)} €)`)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.waBtn}
-                >
-                    <MessageCircle size={18} />
-                    <span>WhatsApp</span>
-                </a>
-            </div>
+            {(phoneNumber || whatsappNumber) && (
+                <div className={styles.quickActions}>
+                    {phoneNumber && (
+                        <a href={`tel:${phoneNumber}`} className={styles.callBtn}>
+                            <Phone size={18} />
+                            <span>{phoneNumber}</span>
+                        </a>
+                    )}
+                    {whatsappNumber && (
+                        <a
+                            href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Bună ziua! Sunt interesat de: ${carName} (${formatPrice(carPrice)} €)`)}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.waBtn}
+                        >
+                            <MessageCircle size={18} />
+                            <span>WhatsApp</span>
+                        </a>
+                    )}
+                </div>
+            )}
 
             {/* Lead Form */}
             <div className={styles.formSeparator}>

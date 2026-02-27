@@ -17,6 +17,7 @@ type Props = {
 
 export default function CarEditForm({ initialData, maxImages = 25 }: Props) {
     const [activeTab, setActiveTab] = useState<'general' | 'specs' | 'images'>('general');
+    const [descLang, setDescLang] = useState<'ro' | 'ru' | 'en'>('ro');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [formError, setFormError] = useState<string | null>(null);
     const router = useRouter();
@@ -59,7 +60,7 @@ export default function CarEditForm({ initialData, maxImages = 25 }: Props) {
         try {
             const result = await saveCar(data as any);
             if (result.success) {
-                router.push('/admin/cars');
+                router.push('/admin/inventory');
                 router.refresh();
             }
         } catch (error) {
@@ -158,6 +159,54 @@ export default function CarEditForm({ initialData, maxImages = 25 }: Props) {
                             <input type="number" {...register('price', { valueAsNumber: true })} />
                             {errors.price && <span className={styles.error}>{errors.price.message}</span>}
                         </div>
+                        <div className={styles.field} style={{ gridColumn: '1 / -1' }}>
+                            <label>Description</label>
+                            <div className={styles.descTabs}>
+                                <button
+                                    type="button"
+                                    className={`${styles.descTabBtn} ${descLang === 'ro' ? styles.descTabActive : ''}`}
+                                    onClick={() => setDescLang('ro')}
+                                >
+                                    RO
+                                </button>
+                                <button
+                                    type="button"
+                                    className={`${styles.descTabBtn} ${descLang === 'ru' ? styles.descTabActive : ''}`}
+                                    onClick={() => setDescLang('ru')}
+                                >
+                                    RU
+                                </button>
+                                <button
+                                    type="button"
+                                    className={`${styles.descTabBtn} ${descLang === 'en' ? styles.descTabActive : ''}`}
+                                    onClick={() => setDescLang('en')}
+                                >
+                                    EN
+                                </button>
+                            </div>
+
+                            {descLang === 'ro' && (
+                                <textarea
+                                    {...register('description.ro' as any)}
+                                    placeholder="Descriere detaliată (RO)..."
+                                    rows={8}
+                                />
+                            )}
+                            {descLang === 'ru' && (
+                                <textarea
+                                    {...register('description.ru' as any)}
+                                    placeholder="Подробное описание (RU)..."
+                                    rows={8}
+                                />
+                            )}
+                            {descLang === 'en' && (
+                                <textarea
+                                    {...register('description.en' as any)}
+                                    placeholder="Detailed description (EN)..."
+                                    rows={8}
+                                />
+                            )}
+                        </div>
                         <div className={styles.field}>
                             <div className={styles.checkbox}>
                                 <input type="checkbox" {...register('is_available')} id="is_available" />
@@ -210,6 +259,22 @@ export default function CarEditForm({ initialData, maxImages = 25 }: Props) {
                                 <option value="fwd">FWD</option>
                                 <option value="rwd">RWD</option>
                             </select>
+                        </div>
+                        <div className={styles.field}>
+                            <label>Exterior Color</label>
+                            <input {...register('color_exterior')} placeholder="e.g. Silver Metallic" />
+                        </div>
+                        <div className={styles.field}>
+                            <label>Interior Color</label>
+                            <input {...register('color_interior')} placeholder="e.g. Black Leather" />
+                        </div>
+                        <div className={styles.field}>
+                            <label>Body Type</label>
+                            <input {...register('body_type')} placeholder="e.g. SUV, Sedan" />
+                        </div>
+                        <div className={styles.field}>
+                            <label>Seats</label>
+                            <input type="number" {...register('seats', { valueAsNumber: true })} />
                         </div>
                     </div>
                 )}

@@ -17,17 +17,17 @@ export default function SubscribersTable({ subscribers }: Props) {
     const [loading, setLoading] = useState<string | null>(null);
 
     const handleDelete = async (id: string) => {
-        if (!confirm('Are you sure you want to delete this subscriber?')) return;
+        if (!confirm('Ești sigur că vrei să ștergi acest abonat?')) return;
 
         setLoading(id);
         const result = await deleteSubscriber(id);
         setLoading(null);
 
         if (result.success) {
-            toast.success('Subscriber deleted');
+            toast.success('Abonat șters cu succes');
             router.refresh();
         } else {
-            toast.error('Failed to delete subscriber');
+            toast.error('Eroare la ștergerea abonatului');
         }
     };
 
@@ -37,10 +37,10 @@ export default function SubscribersTable({ subscribers }: Props) {
         setLoading(null);
 
         if (result.success) {
-            toast.success(currentStatus ? 'Subscriber deactivated' : 'Subscriber activated');
+            toast.success(currentStatus ? 'Abonat dezactivat' : 'Abonat activat');
             router.refresh();
         } else {
-            toast.error('Failed to update subscriber');
+            toast.error('Eroare la actualizarea abonatului');
         }
     };
 
@@ -54,9 +54,9 @@ export default function SubscribersTable({ subscribers }: Props) {
                 border: '1px dashed #ddd'
             }}>
                 <Mail size={48} color="#ccc" style={{ marginBottom: '16px' }} />
-                <h3 style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '8px' }}>No subscribers yet</h3>
+                <h3 style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '8px' }}>Nu există abonați</h3>
                 <p style={{ color: '#666', fontSize: '14px' }}>
-                    Newsletter subscribers will appear here when users sign up.
+                    Abonații la newsletter vor apărea aici când utilizatorii se înscriu.
                 </p>
             </div>
         );

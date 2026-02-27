@@ -55,9 +55,17 @@ export default function ReviewsSlider({ reviews, locale }: Props) {
                                 </div>
                                 <blockquote className={styles.quote}>&ldquo;{getContent(review)}&rdquo;</blockquote>
                                 <div className={styles.author}>
-                                    <div className={styles.avatar}>
-                                        {review.name.charAt(0).toUpperCase()}
-                                    </div>
+                                    {review.avatar_url ? (
+                                        <img
+                                            src={review.avatar_url}
+                                            alt={review.name}
+                                            className={styles.avatarImg}
+                                        />
+                                    ) : (
+                                        <div className={styles.avatar}>
+                                            {review.name.charAt(0).toUpperCase()}
+                                        </div>
+                                    )}
                                     <div>
                                         <p className={styles.name}>{review.name}</p>
                                         <p className={styles.label}>{t('note')}</p>

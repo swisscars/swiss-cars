@@ -35,7 +35,7 @@ export default function AdminError({
                     marginBottom: '16px',
                     color: '#1a1a1a',
                 }}>
-                    Admin Error
+                    Eroare Admin
                 </h1>
                 <p style={{
                     color: '#666',
@@ -43,7 +43,7 @@ export default function AdminError({
                     lineHeight: 1.6,
                     fontSize: '14px',
                 }}>
-                    An error occurred in the admin panel. Please try again or contact support if the issue persists.
+                    A apărut o eroare în panoul de administrare. Te rugăm să încerci din nou sau să contactezi suportul.
                 </p>
                 <button
                     onClick={reset}
@@ -58,7 +58,7 @@ export default function AdminError({
                         cursor: 'pointer',
                     }}
                 >
-                    Try again
+                    Încearcă din nou
                 </button>
             </div>
         </div>

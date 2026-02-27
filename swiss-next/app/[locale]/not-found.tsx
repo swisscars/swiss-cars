@@ -17,7 +17,7 @@ export default function LocaleNotFound() {
                     <Link href="/" className={styles.primaryBtn}>
                         {t('go_home')}
                     </Link>
-                    <Link href="/allcars" className={styles.secondaryBtn}>
+                    <Link href="/inventory" className={styles.secondaryBtn}>
                         {t('view_cars')}
                     </Link>
                 </div>

@@ -85,10 +85,10 @@ export default async function LocaleLayout({ children, params }: Props) {
                 <GoogleAnalytics />
                 <Preloader />
                 <GTMNoscript gtmId={gtmId} />
-                <Header logoUrl={(settings as any)?.logo_url || ''} />
+                <Header logoUrl={(settings as any)?.logo_url || ''} logoHeight={(settings as any)?.logo_height || 80} phone={(settings as any)?.phone} />
                 {children}
                 <Footer settings={settings} />
-                <WhatsAppFloat phone={settings?.whatsapp || "+41783233150"} />
+                <WhatsAppFloat phone={(settings as any)?.whatsapp} />
             </ToastProvider>
         </NextIntlClientProvider>
     );

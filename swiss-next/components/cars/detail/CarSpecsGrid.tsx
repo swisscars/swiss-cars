@@ -29,6 +29,7 @@ export default function CarSpecsGrid({ car }: Props) {
         { label: t('engine'), value: `${car.engine_cc?.toLocaleString() || 0} cm³`, icon: Zap },
         { label: t('drive'), value: car.drive, icon: Navigation },
         { label: t('color'), value: car.color_exterior, icon: Palette },
+        { label: t('color_interior'), value: car.color_interior, icon: DoorOpen },
         { label: t('body_type'), value: car.body_type, icon: Scale },
         { label: t('seats'), value: car.seats, icon: User2 },
     ].filter(s => s.value !== null && s.value !== undefined);

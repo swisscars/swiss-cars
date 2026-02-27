@@ -12,7 +12,7 @@ export default function PartnersTable({ partners }: { partners: Partner[] }) {
     const router = useRouter();
 
     const onDelete = async (id: string) => {
-        if (!confirm('Are you sure?')) return;
+        if (!confirm('Ești sigur că vrei să ștergi acest partener?')) return;
         await deletePartner(id);
         router.refresh();
     };
@@ -24,7 +24,7 @@ export default function PartnersTable({ partners }: { partners: Partner[] }) {
 
     const columns = [
         {
-            header: 'Partner',
+            header: 'Partener',
             accessor: (p: Partner) => (
                 <div className={styles.partnerInfo}>
                     {p.logo_url && (
@@ -44,12 +44,12 @@ export default function PartnersTable({ partners }: { partners: Partner[] }) {
                 </a>
             ) : '-'
         },
-        { header: 'Order', accessor: 'sort_order' as any },
+        { header: 'Ordine', accessor: 'sort_order' as any },
         {
             header: 'Status',
             accessor: (p: Partner) => (
                 <span className={p.is_visible ? styles.badgeSuccess : styles.badgeMuted}>
-                    {p.is_visible ? 'Visible' : 'Hidden'}
+                    {p.is_visible ? 'Vizibil' : 'Ascuns'}
                 </span>
             )
         },

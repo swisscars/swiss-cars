@@ -14,7 +14,7 @@ export default async function LeasingPage() {
     const partners = await getPartners();
 
     return (
-        <main style={{ paddingTop: '80px', paddingBottom: '80px', minHeight: '80vh', background: 'var(--color-bg)' }}>
+        <main style={{ paddingTop: '66px', paddingBottom: '80px', minHeight: '80vh', background: 'var(--color-bg)' }}>
             <div className="container">
                 <div style={{ marginBottom: '50px', textAlign: 'center' }}>
                     <h1 className="ui-title">{t('title')}</h1>

@@ -19,7 +19,7 @@ import styles from './AdminSidebar.module.css';
 
 const MENU_ITEMS = [
     { href: '/admin', label: 'Dashboard', icon: LayoutDashboard },
-    { href: '/admin/cars', label: 'Cars', icon: Car },
+    { href: '/admin/inventory', label: 'Cars', icon: Car },
     { href: '/admin/leads', label: 'Leads', icon: Inbox },
     { href: '/admin/subscribers', label: 'Subscribers', icon: Mail },
     { href: '/admin/reviews', label: 'Reviews', icon: MessageSquare },

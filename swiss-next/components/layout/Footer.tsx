@@ -14,10 +14,10 @@ export default function Footer({ settings = {} }: { settings?: any }) {
     const [email, setEmail] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const phone = settings.phone || '+41 78 323 31 50';
-    const whatsapp = settings.whatsapp || '+41783233150';
-    const emailAddress = settings.email || 'info@swisscars.md';
-    const address = settings.address || 'Switzerland';
+    const phone = settings.phone;
+    const whatsapp = settings.whatsapp;
+    const emailAddress = settings.email;
+    const address = settings.address;
 
     // Toast might not be available if Footer is outside ToastProvider
     let toast: ReturnType<typeof useToast> | null = null;
@@ -65,17 +65,21 @@ export default function Footer({ settings = {} }: { settings?: any }) {
                     <div className={styles.contacts}>
                         <div className={styles.contactGroup}>
                             <p className={styles.contactTitle}>{t('main_office')}</p>
-                            <p>{address}</p>
-                            <p><a href={`mailto:${emailAddress}`}>{emailAddress}</a></p>
-                            <p><a href={`tel:${phone}`}>{phone}</a></p>
+                            {address ? <p>{address}</p> : <p style={{ color: '#dc2626' }}>⚠️ Adresa lipsește</p>}
+                            {emailAddress ? <p><a href={`mailto:${emailAddress}`}>{emailAddress}</a></p> : <p style={{ color: '#dc2626' }}>⚠️ Email lipsește</p>}
+                            {phone ? <p><a href={`tel:${phone}`}>{phone}</a></p> : <p style={{ color: '#dc2626' }}>⚠️ Telefon lipsește</p>}
                         </div>
                         <div className={styles.contactGroup}>
                             <p className={styles.contactTitle}>{t('contact_title')}</p>
-                            <p>
-                                <a href={`https://wa.me/${whatsapp.replace(/[^0-9]/g, '')}`} target="_blank" rel="noopener noreferrer" className={styles.whatsapp}>
-                                    WhatsApp: {whatsapp}
-                                </a>
-                            </p>
+                            {whatsapp ? (
+                                <p>
+                                    <a href={`https://wa.me/${whatsapp.replace(/[^0-9]/g, '')}`} target="_blank" rel="noopener noreferrer" className={styles.whatsapp}>
+                                        WhatsApp: {whatsapp}
+                                    </a>
+                                </p>
+                            ) : (
+                                <p style={{ color: '#dc2626' }}>⚠️ WhatsApp lipsește</p>
+                            )}
                             {settings.facebook && (
                                 <p>
                                     <a href={settings.facebook} target="_blank" rel="noopener noreferrer">
@@ -109,7 +113,7 @@ export default function Footer({ settings = {} }: { settings?: any }) {
                     <h3 className={styles.colTitle}>{t('promotions_title')}</h3>
                     <div className={styles.divider} />
                     <ul className={styles.links}>
-                        <li><Link href="/allcars">{t('nav_inventory')}</Link></li>
+                        <li><Link href="/inventory">{t('nav_inventory')}</Link></li>
                         <li><Link href="/leasing">{t('nav_leasing')}</Link></li>
                         <li><Link href="/#offers">{t('nav_offers')}</Link></li>
                     </ul>

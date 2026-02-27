@@ -96,7 +96,7 @@ export default function CarsGrid({ cars, showViewAll = true, hideHeader = false 
                 {/* View All Button */}
                 {showViewAll && (
                     <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px' }}>
-                        <a href="/allcars" className="btn btn-primary">
+                        <a href="/inventory" className="btn btn-primary">
                             {t('view_all_inventory') || 'View All Inventory'}
                         </a>
                     </div>

@@ -20,7 +20,7 @@ export default function CarCard({ car }: Props) {
     return (
         <article className={styles.card}>
             <div className={styles.imageWrap}>
-                <Link href={`/allcars/${car.slug}`}>
+                <Link href={`/inventory/${car.slug}`}>
                     <Image
                         src={imageUrl}
                         alt={`${car.brand} ${car.model} ${car.year}`}
@@ -61,7 +61,7 @@ export default function CarCard({ car }: Props) {
                     {car.engine_cc && <li>{(car.engine_cc / 1000).toFixed(1)} L</li>}
                 </ul>
 
-                <Link href={`/allcars/${car.slug}`} className={styles.link}>
+                <Link href={`/inventory/${car.slug}`} className={styles.link}>
                     {t('view_details')}
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16">
                         <path d="M5 12h14M12 5l7 7-7 7" />

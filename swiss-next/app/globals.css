@@ -48,7 +48,9 @@
 /* ===================================
    RESET & BASE
    =================================== */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -81,7 +83,8 @@ a {
   transition: color var(--transition-base);
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
 
@@ -92,7 +95,8 @@ button {
   font-family: inherit;
 }
 
-input, textarea {
+input,
+textarea {
   font-family: inherit;
 }
 
@@ -266,7 +270,9 @@ input, textarea {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* ===================================
@@ -318,26 +324,57 @@ input, textarea {
 /* ===================================
    UTILITIES
    =================================== */
-.text-primary { color: var(--color-primary); }
-.text-dark { color: var(--color-dark); }
-.text-white { color: var(--color-white); }
-.text-muted { color: var(--color-text-muted); }
-.bg-primary { background-color: var(--color-primary); }
-.bg-dark { background-color: var(--color-dark); }
-.bg-gray { background-color: var(--color-gray); }
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-dark {
+  color: var(--color-dark);
+}
+
+.text-white {
+  color: var(--color-white);
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+.bg-dark {
+  background-color: var(--color-dark);
+}
+
+.bg-gray {
+  background-color: var(--color-gray);
+}
 
 /* ===================================
    RESPONSIVE
    =================================== */
 @media (max-width: 1024px) {
-  .ui-title { font-size: 28px; }
+  .ui-title {
+    font-size: 28px;
+  }
 }
 
 @media (max-width: 768px) {
   :root {
     --section-padding: 60px 0;
   }
-  .ui-title { font-size: 24px; }
-  .ui-subtitle { font-size: 12px; }
-  .section-header { margin-bottom: 36px; }
+
+  .ui-title {
+    font-size: 24px;
+  }
+
+  .ui-subtitle {
+    font-size: 12px;
+  }
+
+  .section-header {
+    margin-bottom: 36px;
+  }
 }

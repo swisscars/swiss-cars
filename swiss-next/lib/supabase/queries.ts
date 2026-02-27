@@ -253,31 +253,34 @@ export async function getDashboardStats(): Promise<DashboardStats> {
 
     const supabase = await createClient();
 
+    // Optimized: 4 queries instead of 6
+    // Fetch minimal data for cars/leads and count in-memory
     const [
         carsResult,
-        availableCarsResult,
         leadsResult,
-        unreadLeadsResult,
         reviewsResult,
         partnersResult,
     ] = await Promise.all([
-        supabase.from('cars').select('*', { count: 'exact', head: true }),
-        supabase.from('cars').select('*', { count: 'exact', head: true }).eq('is_available', true),
-        supabase.from('leads_inquiries').select('*', { count: 'exact', head: true }),
-        supabase.from('leads_inquiries').select('*', { count: 'exact', head: true }).eq('is_read', false),
+        supabase.from('cars').select('is_available'),
+        supabase.from('leads_inquiries').select('is_read'),
         supabase.from('reviews').select('*', { count: 'exact', head: true }),
         supabase.from('partners').select('*', { count: 'exact', head: true }),
     ]);
 
-    const totalCars = carsResult.count || 0;
-    const availableCars = availableCarsResult.count || 0;
+    const cars = carsResult.data || [];
+    const leads = leadsResult.data || [];
+
+    const totalCars = cars.length;
+    const availableCars = cars.filter(c => c.is_available).length;
+    const totalLeads = leads.length;
+    const unreadLeads = leads.filter(l => !l.is_read).length;
 
     return {
         totalCars,
         availableCars,
         soldCars: totalCars - availableCars,
-        totalLeads: leadsResult.count || 0,
-        unreadLeads: unreadLeadsResult.count || 0,
+        totalLeads,
+        unreadLeads,
         totalReviews: reviewsResult.count || 0,
         totalPartners: partnersResult.count || 0,
     };

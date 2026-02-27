@@ -7,7 +7,9 @@ export default async function StatsSection() {
     const locale = await getLocale();
 
     const homepageData = await getSettings('homepage_content') || {};
+    const siteConfig = await getSettings('site_config') || {};
     const statsData = homepageData.stats_section || null;
+    const phone = siteConfig.phone;
 
     const getText = (translations?: Record<string, string>, fallbackKey?: string) => {
         if (translations && translations[locale]) return translations[locale];
@@ -48,6 +50,7 @@ export default async function StatsSection() {
             partnerships={finalPartnerships}
             questionLabel={t('question')}
             phoneLabel={t('phone')}
+            phone={phone}
         />
     );
 }

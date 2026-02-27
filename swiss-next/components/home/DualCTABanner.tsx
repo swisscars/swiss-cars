@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl';
 import styles from './DualCTABanner.module.css';
 
-export default function DualCTABanner() {
+export default function DualCTABanner({ phone }: { phone?: string }) {
     const t = useTranslations('dual_cta');
 
     return (
@@ -9,9 +9,13 @@ export default function DualCTABanner() {
             <div className={`${styles.panel} ${styles.panelPrimary}`}>
                 <h2 className={styles.title}>{t('left_title')}</h2>
                 <p className={styles.text}>{t('left_text')}</p>
-                <a href="tel:+37379330022" className={`btn btn-white ${styles.btn}`}>
-                    {t('left_cta')}
-                </a>
+                {phone ? (
+                    <a href={`tel:${phone.replace(/\s/g, '')}`} className={`btn btn-white ${styles.btn}`}>
+                        {t('left_cta')}
+                    </a>
+                ) : (
+                    <span style={{ color: '#dc2626', fontSize: '14px' }}>⚠️ Telefon lipsește din setări</span>
+                )}
             </div>
             <div className={`${styles.panel} ${styles.panelDark}`}>
                 <h2 className={styles.title}>{t('right_title')}</h2>

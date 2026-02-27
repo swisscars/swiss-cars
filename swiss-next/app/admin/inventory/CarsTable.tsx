@@ -27,17 +27,17 @@ export default function CarsTable({ cars, currentPage, totalPages }: Props) {
     };
 
     const onDelete = async (id: string) => {
-        if (!confirm('Are you sure you want to delete this car?')) return;
+        if (!confirm('Ești sigur că vrei să ștergi această mașină?')) return;
         try {
             await deleteCar(id);
             router.refresh();
         } catch (error) {
-            alert('Delete failed');
+            alert('Ștergerea a eșuat');
         }
     };
     const columns = [
         {
-            header: 'Car',
+            header: 'Mașină',
             accessor: (car: Car) => (
                 <div className={styles.carInfo}>
                     <span className={styles.carName}>{car.brand} {car.model}</span>
@@ -45,16 +45,16 @@ export default function CarsTable({ cars, currentPage, totalPages }: Props) {
                 </div>
             )
         },
-        { header: 'Year', accessor: (car: Car) => car.year },
+        { header: 'An', accessor: (car: Car) => car.year },
         {
-            header: 'Price',
+            header: 'Preț',
             accessor: (car: Car) => `${formatPrice(car.price)} €`
         },
         {
             header: 'Status',
             accessor: (car: Car) => (
                 <span className={car.is_available ? styles.badgeSuccess : styles.badgeError}>
-                    {car.is_available ? 'Available' : 'Sold'}
+                    {car.is_available ? 'Disponibil' : 'Vândut'}
                 </span>
             )
         },
@@ -67,10 +67,10 @@ export default function CarsTable({ cars, currentPage, totalPages }: Props) {
                 columns={columns as any}
                 actions={(car) => (
                     <div className={styles.actions}>
-                        <Link href={`/en/cars/${car.slug}`} target="_blank" className={styles.actionBtn}>
+                        <Link href={`/en/inventory/${car.slug}`} target="_blank" className={styles.actionBtn}>
                             <Eye size={16} />
                         </Link>
-                        <Link href={`/admin/cars/${car.id}`} className={styles.actionBtn}>
+                        <Link href={`/admin/inventory/${car.id}`} className={styles.actionBtn}>
                             <Edit2 size={16} />
                         </Link>
                         <button

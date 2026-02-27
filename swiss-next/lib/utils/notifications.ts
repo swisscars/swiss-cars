@@ -1,16 +1,38 @@
+// Escape HTML special characters to prevent XSS
+function escapeHtml(str: string): string {
+    return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+}
+
+// Escape Markdown special characters for Telegram
+function escapeMarkdown(str: string): string {
+    return str.replace(/[_*[\]()~`>#+=|{}.!-]/g, '\\$&');
+}
+
 export async function sendTelegramNotification(token: string, chatId: string, lead: any) {
     if (!token || !chatId) return;
+
+    // Escape user-provided content to prevent injection
+    const safeName = escapeMarkdown(lead.name || '');
+    const safePhone = escapeMarkdown(lead.phone || '');
+    const safeEmail = escapeMarkdown(lead.email || 'N/A');
+    const safeCarName = escapeMarkdown(lead.car_name || 'Inquiry General');
+    const safeMessage = lead.message ? escapeMarkdown(lead.message) : '_Fără mesaj_';
 
     const message = `
 🔔 *Lead Nou - SwissCars.md*
 
-👤 *Nume:* ${lead.name}
-📱 *Telefon:* \`${lead.phone}\`
-📧 *Email:* ${lead.email || 'N/A'}
-🚗 *Mașină:* ${lead.car_name || 'Inquiry General'}
+👤 *Nume:* ${safeName}
+📱 *Telefon:* \`${safePhone}\`
+📧 *Email:* ${safeEmail}
+🚗 *Mașină:* ${safeCarName}
 
 💬 *Mesaj:*
-${lead.message || '_Fără mesaj_'}
+${safeMessage}
 
 ---
 📅 _Data: ${new Date().toLocaleString('ro-RO')}_
@@ -50,16 +72,16 @@ export async function sendEmailNotification(to: string, lead: any) {
             body: JSON.stringify({
                 from: 'SwissCars Notifications <notifications@swisscars.md>',
                 to: [to],
-                subject: `Lead Nou: ${lead.name} - ${lead.car_name || 'Contact'}`,
+                subject: `Lead Nou: ${escapeHtml(lead.name || '')} - ${escapeHtml(lead.car_name || 'Contact')}`,
                 html: `
                     <h2>Lead Nou SwissCars.md</h2>
-                    <p><strong>Nume:</strong> ${lead.name}</p>
-                    <p><strong>Telefon:</strong> <a href="tel:${lead.phone}">${lead.phone}</a></p>
-                    <p><strong>Email:</strong> ${lead.email || 'N/A'}</p>
-                    <p><strong>Mașină:</strong> ${lead.car_name || 'N/A'}</p>
+                    <p><strong>Nume:</strong> ${escapeHtml(lead.name || '')}</p>
+                    <p><strong>Telefon:</strong> <a href="tel:${escapeHtml(lead.phone || '')}">${escapeHtml(lead.phone || '')}</a></p>
+                    <p><strong>Email:</strong> ${escapeHtml(lead.email || 'N/A')}</p>
+                    <p><strong>Mașină:</strong> ${escapeHtml(lead.car_name || 'N/A')}</p>
                     <hr />
                     <p><strong>Mesaj:</strong></p>
-                    <p>${lead.message || 'N/A'}</p>
+                    <p>${escapeHtml(lead.message || 'N/A')}</p>
                     <hr />
                     <p><small>Trimis la: ${new Date().toLocaleString('ro-RO')}</small></p>
                 `,

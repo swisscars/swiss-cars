@@ -8,7 +8,7 @@ import MobileMenu from './MobileMenu';
 import FavoritesIcon from './FavoritesIcon';
 import styles from './Header.module.css';
 
-export default function Header({ logoUrl }: { logoUrl?: string }) {
+export default function Header({ logoUrl, logoHeight = 80, phone }: { logoUrl?: string; logoHeight?: number; phone?: string }) {
     const t = useTranslations('nav');
     const locale = useLocale();
     const pathname = usePathname();
@@ -23,7 +23,7 @@ export default function Header({ logoUrl }: { logoUrl?: string }) {
 
     const navLinks = [
         { href: '/', label: t('home') },
-        { href: '/allcars', label: t('inventory') },
+        { href: '/inventory', label: t('inventory') },
         { href: '/about', label: t('about') },
         { href: '/services', label: t('services') },
         { href: '/leasing', label: 'Leasing' },
@@ -40,6 +40,7 @@ export default function Header({ logoUrl }: { logoUrl?: string }) {
                 navLinks={navLinks}
                 locale={locale}
                 pathname={pathname}
+                phone={phone}
             />
 
             <header className={`${styles.header} ${isScrolled || !isHome ? styles.scrolled : ''}`}>
@@ -49,10 +50,11 @@ export default function Header({ logoUrl }: { logoUrl?: string }) {
                         <Image
                             src={logoUrl && logoUrl.length > 0 ? logoUrl : '/media/general/swiss-logo-2-red.png'}
                             alt="SwissCars Logo"
-                            width={150}
-                            height={50}
+                            width={Math.round(logoHeight * 3)}
+                            height={logoHeight}
                             priority
                             className={styles.logoImg}
+                            style={{ height: logoHeight, width: 'auto' }}
                         />
                     </Link>
 

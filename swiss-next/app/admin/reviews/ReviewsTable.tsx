@@ -25,7 +25,7 @@ export default function ReviewsTable({ reviews, currentPage, totalPages }: Props
     };
 
     const onDelete = async (id: string) => {
-        if (!confirm('Are you sure?')) return;
+        if (!confirm('Ești sigur că vrei să ștergi această recenzie?')) return;
         await deleteReview(id);
         router.refresh();
     };
@@ -36,7 +36,42 @@ export default function ReviewsTable({ reviews, currentPage, totalPages }: Props
     };
 
     const columns = [
-        { header: 'Author', accessor: 'name' as any },
+        {
+            header: 'Autor',
+            accessor: (r: Review) => (
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    {r.avatar_url ? (
+                        <img
+                            src={r.avatar_url}
+                            alt={r.name}
+                            style={{
+                                width: '32px',
+                                height: '32px',
+                                borderRadius: '50%',
+                                objectFit: 'cover',
+                                border: '2px solid var(--color-primary)'
+                            }}
+                        />
+                    ) : (
+                        <div style={{
+                            width: '32px',
+                            height: '32px',
+                            borderRadius: '50%',
+                            background: 'var(--color-primary)',
+                            color: 'white',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            fontWeight: 700,
+                            fontSize: '14px'
+                        }}>
+                            {r.name.charAt(0).toUpperCase()}
+                        </div>
+                    )}
+                    <span>{r.name}</span>
+                </div>
+            )
+        },
         {
             header: 'Rating',
             accessor: (r: Review) => (
@@ -46,7 +81,7 @@ export default function ReviewsTable({ reviews, currentPage, totalPages }: Props
             )
         },
         {
-            header: 'Review (RO)',
+            header: 'Recenzie (RO)',
             accessor: (r: Review) => <div className={styles.contentPreview}>{r.content_ro}</div>,
             width: '40%'
         },
@@ -54,7 +89,7 @@ export default function ReviewsTable({ reviews, currentPage, totalPages }: Props
             header: 'Status',
             accessor: (r: Review) => (
                 <span className={r.is_visible ? styles.badgeSuccess : styles.badgeMuted}>
-                    {r.is_visible ? 'Visible' : 'Hidden'}
+                    {r.is_visible ? 'Vizibil' : 'Ascuns'}
                 </span>
             )
         },

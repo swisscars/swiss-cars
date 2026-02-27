@@ -6,7 +6,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const locales = ['ro', 'ru', 'en'];
 
     // Static pages
-    const staticPaths = ['', '/about', '/services', '/leasing', '/contact', '/allcars'];
+    const staticPaths = ['', '/about', '/services', '/leasing', '/contact', '/inventory'];
 
     const staticEntries: MetadataRoute.Sitemap = [];
     for (const locale of locales) {
@@ -28,7 +28,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         for (const locale of locales) {
             const prefix = locale === 'ro' ? '' : `/${locale}`;
             carEntries.push({
-                url: `${baseUrl}${prefix}/allcars/${car.slug}`,
+                url: `${baseUrl}${prefix}/inventory/${car.slug}`,
                 lastModified: new Date(car.created_at || Date.now()),
                 changeFrequency: 'monthly',
                 priority: 0.7,

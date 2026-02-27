@@ -83,7 +83,7 @@ VALUES
 ('mercedes-c-class-2015', 'Mercedes', 'Clasa C', 2015, 19500, 162400, 'diesel', 'automatic', 2200, 'Silver', 'Sedan', 'rwd', 5, false),
 ('fiat-500-2008', 'Fiat', '500', 2008, 5800, 80000, 'petrol', 'automatic', 1400, 'White', 'Hatchback', 'fwd', 4, false),
 ('volvo-xc60-2014', 'Volvo', 'XC60', 2014, 19999, 148680, 'diesel', 'automatic', 2400, 'Black', 'SUV', '4x4', 5, false),
-('mercedes-sprinter-319-2013', 'Mercedes', 'Sprinter 319', 2013, 29999, 242680, 'diesel', 'manual', 3000, 'White', 'Van', 'rwd', 9, false);
+('mercedes-sprinter-319-2013', 'Mercedes', 'Sprinter 319', 2013, 29999, 242680, 'diesel', 'manual', page-module__rI910a__actionBtn, 'White', 'Van', 'rwd', 9, false);
 
 -- Note: Images URLs should be updated after uploading to Supabase Storage.
 

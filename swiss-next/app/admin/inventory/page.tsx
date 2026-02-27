@@ -21,7 +21,7 @@ export default async function AdminCarsPage({ searchParams }: Props) {
         <div>
             <div className={styles.header}>
                 <h1 className={styles.title}>All Cars ({totalCount})</h1>
-                <Link href="/admin/cars/new" className="btn btn-primary">
+                <Link href="/admin/inventory/new" className="btn btn-primary">
                     <Plus size={18} className="me-2" /> Add New Car
                 </Link>
             </div>
