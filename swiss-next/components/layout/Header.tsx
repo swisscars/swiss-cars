@@ -9,7 +9,7 @@ import FavoritesIcon from './FavoritesIcon';
 import styles from './Header.module.css';
 
 export default function Header({ logoUrl, logoHeight = 50, phone }: { logoUrl?: string; logoHeight?: number; phone?: string }) {
-    const clampedLogoHeight = Math.min(logoHeight, 60);
+    const clampedLogoHeight = Math.min(logoHeight, 120);
     const t = useTranslations('nav');
     const locale = useLocale();
     const pathname = usePathname();
