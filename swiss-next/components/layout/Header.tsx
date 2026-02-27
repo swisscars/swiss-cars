@@ -8,7 +8,8 @@ import MobileMenu from './MobileMenu';
 import FavoritesIcon from './FavoritesIcon';
 import styles from './Header.module.css';
 
-export default function Header({ logoUrl, logoHeight = 80, phone }: { logoUrl?: string; logoHeight?: number; phone?: string }) {
+export default function Header({ logoUrl, logoHeight = 50, phone }: { logoUrl?: string; logoHeight?: number; phone?: string }) {
+    const clampedLogoHeight = Math.min(logoHeight, 60);
     const t = useTranslations('nav');
     const locale = useLocale();
     const pathname = usePathname();
@@ -57,11 +58,11 @@ export default function Header({ logoUrl, logoHeight = 80, phone }: { logoUrl?: 
                         <Image
                             src={logoUrl && logoUrl.length > 0 ? logoUrl : '/media/general/swiss-logo-2-red.png'}
                             alt="SwissCars Logo"
-                            width={Math.round(logoHeight * 3)}
-                            height={logoHeight}
+                            width={Math.round(clampedLogoHeight * 3)}
+                            height={clampedLogoHeight}
                             priority
                             className={styles.logoImg}
-                            style={{ height: logoHeight, width: 'auto' }}
+                            style={{ height: clampedLogoHeight, width: 'auto' }}
                         />
                     </Link>
 
