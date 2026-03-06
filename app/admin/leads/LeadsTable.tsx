@@ -2,7 +2,7 @@
 
 import { useState, useTransition } from 'react';
 import { format } from 'date-fns';
-import { CheckCheck, Eye, EyeOff, Star, StarOff, Trash2, Phone, Mail, Car, Link as LinkIcon } from 'lucide-react';
+import { CheckCheck, Eye, EyeOff, Star, StarOff, Trash2, Phone, Mail, Car, Link as LinkIcon, CalendarCheck } from 'lucide-react';
 import { markLeadRead, markLeadImportant, deleteLead, markAllLeadsRead } from '@/lib/actions/leads';
 import styles from './LeadsTable.module.css';
 
@@ -13,6 +13,8 @@ type Lead = {
     phone: string;
     email: string | null;
     message: string | null;
+    preferred_date: string | null;
+    form_type: string | null;
     source_url: string | null;
     is_read: boolean;
     is_important: boolean;
@@ -140,6 +142,9 @@ export default function LeadsTable({ initialLeads, unreadCount }: Props) {
                                         <span className={`${styles.badge} ${lead.is_read ? styles.badgeRead : styles.badgeNew}`}>
                                             {lead.is_read ? 'Citit' : '● Nou'}
                                         </span>
+                                        {lead.form_type === 'testdrive' && (
+                                            <span className={styles.badgeTestDrive}>📅 Programare</span>
+                                        )}
                                         {lead.is_important && (
                                             <span className={styles.badgeImportant}>⭐ Important</span>
                                         )}
@@ -175,6 +180,12 @@ export default function LeadsTable({ initialLeads, unreadCount }: Props) {
                                     )}
                                 </div>
 
+                                {lead.preferred_date && (
+                                    <div className={styles.preferredDateRow}>
+                                        <CalendarCheck size={13} />
+                                        <span>Data preferată: <strong>{lead.preferred_date}</strong></span>
+                                    </div>
+                                )}
                                 {lead.message && (
                                     <p className={styles.message}>&ldquo;{lead.message}&rdquo;</p>
                                 )}

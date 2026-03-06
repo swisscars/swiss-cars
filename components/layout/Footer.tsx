@@ -60,7 +60,11 @@ export default function Footer({ settings = {} }: { settings?: any }) {
                     <div className={styles.contacts}>
                         <div className={styles.contactGroup}>
                             <p className={styles.contactTitle}>{t('main_office')}</p>
-                            {address ? <p>{address}</p> : <p style={{ color: '#dc2626' }}>⚠️ Adresa lipsește</p>}
+                            {address ? (
+                                <p style={{ whiteSpace: 'pre-line' }}>{address}</p>
+                            ) : (
+                                <p style={{ color: '#dc2626' }}>⚠️ Adresa lipsește</p>
+                            )}
                             {emailAddress ? <p><a href={`mailto:${emailAddress}`}>{emailAddress}</a></p> : <p style={{ color: '#dc2626' }}>⚠️ Email lipsește</p>}
                             {phone ? <p><a href={`tel:${phone}`}>{phone}</a></p> : <p style={{ color: '#dc2626' }}>⚠️ Telefon lipsește</p>}
                             {settings.footer_phones && settings.footer_phones.split(',').map((p: string, idx: number) => (

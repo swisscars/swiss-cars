@@ -1,4 +1,4 @@
-import { createClient } from './server';
+import { createClient, createStaticClient } from './server';
 import { type Car, type Review, type Partner } from '../types';
 
 const isSupabaseConfigured = !!(
@@ -23,7 +23,7 @@ export async function getCars(options?: {
     maxYear?: number;
 }): Promise<Car[]> {
     if (!isSupabaseConfigured) return [];
-    const supabase = await createClient();
+    const supabase = createStaticClient();
 
     let query = supabase
         .from('cars')
@@ -66,7 +66,7 @@ export async function getCarsPaginated(options?: {
         return { data: [], totalCount: 0, page, totalPages: 0 };
     }
 
-    const supabase = await createClient();
+    const supabase = createStaticClient();
 
     // Build base query for count
     let countQuery = supabase
@@ -128,7 +128,7 @@ export async function getCarsPaginated(options?: {
 
 export async function getCarBySlug(slug: string): Promise<Car | null> {
     if (!isSupabaseConfigured) return null;
-    const supabase = await createClient();
+    const supabase = createStaticClient();
     const { data, error } = await supabase
         .from('cars')
         .select('*, car_images(*)')
@@ -144,7 +144,7 @@ export async function getCarBySlug(slug: string): Promise<Car | null> {
 
 export async function getReviews(): Promise<Review[]> {
     if (!isSupabaseConfigured) return [];
-    const supabase = await createClient();
+    const supabase = createStaticClient();
     const { data, error } = await supabase
         .from('reviews')
         .select('*')
@@ -199,7 +199,7 @@ export async function getAllReviewsPaginated(options?: {
 
 export async function getPartners(): Promise<Partner[]> {
     if (!isSupabaseConfigured) return [];
-    const supabase = await createClient();
+    const supabase = createStaticClient();
     const { data, error } = await supabase
         .from('partners')
         .select('*')
@@ -306,7 +306,7 @@ export async function getRecentLeads(limit: number = 5) {
 
 export async function getFeaturedCars(): Promise<Car[]> {
     if (!isSupabaseConfigured) return [];
-    const supabase = await createClient();
+    const supabase = createStaticClient();
     const { data, error } = await supabase
         .from('cars')
         .select('*, car_images(*)')

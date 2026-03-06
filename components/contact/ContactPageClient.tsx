@@ -81,7 +81,7 @@ export default function ContactPageClient({
                     <div className={styles.infoCard}>
                         <div className={styles.iconWrap}><MapPin size={26} color="var(--color-primary)" /></div>
                         <h3>{t('location')}</h3>
-                        <p>{address || <span style={{ color: '#dc2626' }}>⚠️ Adresa lipsește din setări</span>}</p>
+                        <p style={{ whiteSpace: 'pre-line' }}>{address || <span style={{ color: '#dc2626' }}>⚠️ Adresa lipsește din setări</span>}</p>
                     </div>
                     <div className={styles.infoCard}>
                         <div className={styles.iconWrap}><Phone size={26} color="var(--color-primary)" /></div>

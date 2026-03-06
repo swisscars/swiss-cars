@@ -14,6 +14,8 @@ const LeadInquirySchema = z.object({
     phone: z.string().min(7, 'Numărul de telefon trebuie să aibă minim 7 caractere').max(35, 'Numărul de telefon este prea lung'),
     email: z.string().email('Format email invalid').optional().or(z.literal('')),
     message: z.string().max(2000, 'Mesajul este prea lung').optional(),
+    preferred_date: z.string().max(100).optional(),
+    form_type: z.string().max(50).optional(),
     source_url: z.string().url().optional(),
 });
 export type LeadInquiry = {
@@ -23,6 +25,8 @@ export type LeadInquiry = {
     phone: string;
     email?: string;
     message?: string;
+    preferred_date?: string;
+    form_type?: string;
     source_url?: string;
 };
 
@@ -61,6 +65,8 @@ export async function submitLeadInquiry(data: LeadInquiry) {
         phone: validData.phone,
         email: validData.email || null,
         message: validData.message || null,
+        preferred_date: validData.preferred_date || null,
+        form_type: validData.form_type || 'inquiry',
         source_url: validData.source_url || null,
         created_at: new Date().toISOString(),
     });

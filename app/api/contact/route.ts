@@ -45,14 +45,15 @@ export async function POST(req: NextRequest) {
         const supabase = await createClient();
 
         // We insert into leads_inquiries to ensure visibility in the Admin panel
-        // Use a generic car_name for general contact messages
         const insertData = {
             car_id: null,
             car_name: formType === 'testdrive' ? 'Programare Vizionare' : 'Contact General',
             name,
             phone,
             email: email || null,
-            message: message || (preferredDate ? `Data preferata: ${preferredDate}` : null),
+            message: message || null,
+            preferred_date: preferredDate || null,
+            form_type: formType || 'contact',
             source_url: sourceUrl || null,
             created_at: new Date().toISOString(),
         };
@@ -77,8 +78,8 @@ export async function POST(req: NextRequest) {
                     name,
                     phone,
                     email,
-                    car_name: formType === 'testdrive' ? 'Programare Vizionare' : 'Contact General',
-                    message: message || `Tip: ${formType}${preferredDate ? ` | Data: ${preferredDate}` : ''}`,
+                    car_name: formType === 'testdrive' ? '📅 Programare Vizionare' : '📩 Contact General',
+                    message: `${message ? `"${message}"` : ''}${preferredDate ? `\n📅 Data preferată: ${preferredDate}` : ''}${formType ? `\n(Tip: ${formType})` : ''}`,
                     source_url: sourceUrl
                 };
 
