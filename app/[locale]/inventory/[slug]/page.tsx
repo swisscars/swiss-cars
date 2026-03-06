@@ -271,15 +271,9 @@ export default async function CarDetailPage({ params }: Props) {
                                 </div>
 
                                 {/* Lead Contact Form */}
-<<<<<<< Updated upstream
-                                <div className={styles.card} style={{ marginTop: '20px' }}>
-                                    <h3 className={styles.contactTitle}>Trimite o cerere</h3>
-                                    <p className={styles.contactSubtitle}>Te contactăm rapid cu detalii și disponibilitate.</p>
-=======
                                 <div className={styles.card}>
                                     <h3 className={styles.contactTitle}>{t('contact_sidebar_title')}</h3>
                                     <p className={styles.contactSubtitle}>{t('contact_sidebar_subtitle')}</p>
->>>>>>> Stashed changes
                                     <CarLeadForm
                                         carId={car.id ?? ''}
                                         carName={`${car.brand} ${car.model} ${car.year}`}

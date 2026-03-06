@@ -66,6 +66,38 @@ git checkout -- cale/catre/fisier.tsx
 git reset cale/catre/fisier.tsx
 ```
 
+## Salvarea modificărilor pe un branch nou (când nu vrei să pui direct pe dev)
+
+Dacă ai lucrat pe `dev` și îți dai seama că vrei să pui munca pe o ramură separată pentru a o testa, a rezolva conflicte sau a face un PR (Pull Request):
+
+```bash
+# 1. Ascunde temporar modificările tale
+git stash
+
+# 2. Descarcă ultimele actualizări (dacă lucrezi în echipă sau ai modificat din altă parte)
+git checkout dev
+git pull origin dev
+
+# 3. Creează un branch nou și mută-te pe el (ex: feature-nou)
+git checkout -b feature-nou
+
+# 4. Adu modificările tale înapoi pe noul branch
+git stash pop
+
+# ATENȚIE: Dacă ai conflicte la stash pop (ex: "Merge conflict in..."), 
+# rezolvă-le în editor, apoi:
+git add .
+git commit --author="Numele Tau <email@tau.ro>" -m "feat: Descrierea modificărilor"
+
+# 5. Trimite noul branch pe GitHub
+git push -u origin feature-nou
+
+# 6. Dacă vrei să combini noul branch direct în dev:
+git checkout dev
+git merge feature-nou
+git push origin dev
+```
+
 ## Remote
 
 - **GitHub:** `https://github.com/adry999/swiss-cars`

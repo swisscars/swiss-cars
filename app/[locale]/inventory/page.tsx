@@ -31,24 +31,6 @@ export default async function InventoryPage({ searchParams }: Props) {
 
     const { data: cars, totalPages, totalCount } = await getCarsPaginated({
         page,
-<<<<<<< Updated upstream
-        limit: 12,
-    });
-
-    return (
-        <main style={{ paddingTop: 'var(--header-height)', minHeight: '80vh', background: 'var(--color-bg)' }}>
-            <div className="container" style={{ marginBottom: '40px' }}>
-                <h1 className="ui-title" style={{ marginTop: '20px' }}>{t('all_cars_title') || 'Inventory'}</h1>
-                <p style={{ color: 'var(--color-text-muted)', marginTop: '10px' }}>
-                    {totalCount} {totalCount === 1 ? 'car' : 'cars'} available
-                </p>
-            </div>
-            <CarsGridPaginated
-                cars={cars}
-                currentPage={page}
-                totalPages={totalPages}
-            />
-=======
         limit: 15, // Slightly more per page
     });
 
@@ -70,7 +52,6 @@ export default async function InventoryPage({ searchParams }: Props) {
                     />
                 </div>
             </div>
->>>>>>> Stashed changes
         </main>
     );
 }
