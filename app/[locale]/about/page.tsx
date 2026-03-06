@@ -35,6 +35,8 @@ export default async function AboutPage() {
                     alt="SwissCars Showroom"
                     fill
                     priority
+                    sizes="100vw"
+                    quality={85}
                     className={styles.heroImage}
                 />
                 <div className={styles.heroOverlay} />
@@ -60,7 +62,7 @@ export default async function AboutPage() {
                                 </div>
                                 <div className={styles.statCard}>
                                     <span className={styles.statNumber}>500+</span>
-                                    <span className={styles.statLabel}>Mașini Livrate</span>
+                                    <span className={styles.statLabel}>{t('cars_delivered')}</span>
                                 </div>
                             </div>
                         </div>
@@ -70,6 +72,8 @@ export default async function AboutPage() {
                                 alt="Service Delivery"
                                 fill
                                 style={{ objectFit: 'cover' }}
+                                sizes="(max-width: 768px) 100vw, 50vw"
+                                quality={80}
                             />
                         </div>
                     </div>
@@ -147,7 +151,7 @@ export default async function AboutPage() {
                             {t('cta_button')} <ChevronRight size={18} />
                         </Link>
                         <Link href="/contact" className="btn btn-outline btn-lg">
-                            Contactează-ne
+                            {t('contact_label', { defaultValue: 'Contactează-ne' })}
                         </Link>
                     </div>
                 </div>

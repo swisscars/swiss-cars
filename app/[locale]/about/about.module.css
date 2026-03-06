@@ -107,7 +107,12 @@
 
 @media (max-width: 768px) {
     .statsGrid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
+    }
+
+    .heroContent {
+        padding-top: 40px;
+        /* Extra room on small mobile heights */
     }
 }
 

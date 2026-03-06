@@ -79,6 +79,7 @@ export default async function LocaleLayout({ children, params }: Props) {
     const gtmId: string = (settings as any)?.gtm_id || '';
 
     return (
+<<<<<<< Updated upstream
         <NextIntlClientProvider locale={locale} messages={messages}>
             <ToastProvider>
                 <GTMScript gtmId={gtmId} />
@@ -91,5 +92,26 @@ export default async function LocaleLayout({ children, params }: Props) {
                 <WhatsAppFloat phone={(settings as any)?.whatsapp} />
             </ToastProvider>
         </NextIntlClientProvider>
+=======
+        <html lang={locale} suppressHydrationWarning>
+            <body
+                suppressHydrationWarning
+                style={{ '--header-height': `${(settings as any)?.header_height || 80}px` } as React.CSSProperties}
+            >
+                <NextIntlClientProvider locale={locale} messages={messages}>
+                    <ToastProvider>
+                        <GTMScript gtmId={gtmId} />
+                        <GoogleAnalytics />
+                        <Preloader />
+                        <GTMNoscript gtmId={gtmId} />
+                        <Header logoUrl={(settings as any)?.logo_url || ''} logoHeight={(settings as any)?.logo_height || 80} phone={(settings as any)?.phone} />
+                        {children}
+                        <Footer settings={settings} />
+                        <WhatsAppFloat phone={(settings as any)?.whatsapp} />
+                    </ToastProvider>
+                </NextIntlClientProvider>
+            </body>
+        </html>
+>>>>>>> Stashed changes
     );
 }

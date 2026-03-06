@@ -77,7 +77,14 @@ export default function FavoritesPageClient({ allCars }: { allCars: Car[] }) {
 
                                     <Link href={`/inventory/${car.slug}`}>
                                         <div style={{ position: 'relative', height: '200px' }}>
-                                            <Image src={imageUrl} alt={`${car.brand} ${car.model}`} fill style={{ objectFit: 'cover' }} />
+                                            <Image
+                                                src={imageUrl}
+                                                alt={`${car.brand} ${car.model}`}
+                                                fill
+                                                style={{ objectFit: 'cover' }}
+                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                                quality={75}
+                                            />
                                             <div style={{ position: 'absolute', bottom: '12px', left: '12px', background: 'var(--color-primary)', color: 'white', padding: '5px 12px', borderRadius: '4px', fontSize: '14px', fontWeight: '800', fontFamily: 'var(--font-primary)' }}>
                                                 {formatPrice(car.price)} €
                                             </div>

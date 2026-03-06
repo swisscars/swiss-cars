@@ -1,5 +1,5 @@
 .main {
-    padding-top: 66px;
+    padding-top: var(--header-height, 80px);
     min-height: 80vh;
     background: var(--color-bg, #f9f9f9);
 }

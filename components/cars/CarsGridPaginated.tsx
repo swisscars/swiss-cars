@@ -24,42 +24,44 @@ export default function CarsGridPaginated({ cars, currentPage, totalPages }: Pro
     };
 
     return (
-        <section className={`section section--gray ${styles.section}`}>
-            <div className="container">
-                <motion.div layout className={styles.grid}>
-                    <AnimatePresence mode="popLayout">
-                        {cars.length === 0 ? (
-                            <motion.p
-                                key="empty"
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                className={styles.empty}
+        <div className={styles.wrapper}>
+            <motion.div layout className={styles.grid}>
+                <AnimatePresence mode="popLayout">
+                    {cars.length === 0 ? (
+                        <motion.p
+                            key="empty"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            className={styles.empty}
+                        >
+                            No cars found
+                        </motion.p>
+                    ) : (
+                        cars.map((car) => (
+                            <motion.div
+                                key={car.id}
+                                layout
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                exit={{ opacity: 0, scale: 0.9 }}
+                                transition={{ duration: 0.3 }}
                             >
-                                No cars found
-                            </motion.p>
-                        ) : (
-                            cars.map((car) => (
-                                <motion.div
-                                    key={car.id}
-                                    layout
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    exit={{ opacity: 0, scale: 0.9 }}
-                                    transition={{ duration: 0.3 }}
-                                >
-                                    <CarCard car={car} />
-                                </motion.div>
-                            ))
-                        )}
-                    </AnimatePresence>
-                </motion.div>
+                                <CarCard car={car} />
+                            </motion.div>
+                        ))
+                    )}
+                </AnimatePresence>
+            </motion.div>
 
-                <Pagination
-                    currentPage={currentPage}
-                    totalPages={totalPages}
-                    onPageChange={handlePageChange}
-                />
-            </div>
-        </section>
+            {totalPages > 1 && (
+                <div style={{ marginTop: '50px', display: 'flex', justifyContent: 'center' }}>
+                    <Pagination
+                        currentPage={currentPage}
+                        totalPages={totalPages}
+                        onPageChange={handlePageChange}
+                    />
+                </div>
+            )}
+        </div>
     );
 }

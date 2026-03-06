@@ -6,11 +6,14 @@ import StatsSection from '@/components/home/StatsSection';
 import ServicesSection from '@/components/home/ServicesSection';
 import ContactBanner from '@/components/home/ContactBanner';
 import WhyUsAccordion from '@/components/home/WhyUsAccordion';
+import dynamic from 'next/dynamic';
 import DualCTABanner from '@/components/home/DualCTABanner';
-import ReviewsSlider from '@/components/home/ReviewsSlider';
 import LeasingSection from '@/components/home/LeasingSection';
-import PartnersSlider from '@/components/home/PartnersSlider';
 import { Reveal } from '@/components/ui/Reveal';
+
+const ReviewsSlider = dynamic(() => import('@/components/home/ReviewsSlider'), { ssr: true });
+const PartnersSlider = dynamic(() => import('@/components/home/PartnersSlider'), { ssr: true });
+
 import { getFeaturedCars, getReviews, getPartners } from '@/lib/supabase/queries';
 import { getSettings } from '@/lib/actions/settings';
 import type { Metadata } from 'next';
@@ -44,8 +47,28 @@ export default async function HomePage({ params }: Props) {
     ]);
     const phone = (siteConfig as any)?.phone;
 
+    const schema = {
+        "@context": "https://schema.org",
+        "@type": "AutoDealer",
+        "name": siteConfig.site_title || "SwissCars.md",
+        "url": "https://swisscars.md",
+        "logo": (siteConfig as any)?.logo_url || "https://swisscars.md/media/general/swiss-logo-2-red.png",
+        "description": siteConfig.site_description || "",
+        "telephone": phone || "",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": (siteConfig as any)?.address || "",
+            "addressCountry": "MD"
+        }
+    };
+
     return (
         <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+            />
+
             <HeroSlider slides={homepageData?.hero_slides} />
 
             <Reveal>

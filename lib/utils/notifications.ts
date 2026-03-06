@@ -21,10 +21,12 @@ export async function sendTelegramNotification(token: string, chatId: string, le
     const safePhone = escapeMarkdown(lead.phone || '');
     const safeEmail = escapeMarkdown(lead.email || 'N/A');
     const safeCarName = escapeMarkdown(lead.car_name || 'Inquiry General');
+    // DO NOT escape the URL, otherwise the Telegram Markdown link [text](${url}) breaks
+    const rawUrl = lead.source_url || '';
     const safeMessage = lead.message ? escapeMarkdown(lead.message) : '_Fără mesaj_';
 
     const message = `
-🔔 *Lead Nou - SwissCars.md*
+🔔 *Lead Nou* ${rawUrl ? `- [${rawUrl}](${rawUrl})` : '- SwissCars.md'}
 
 👤 *Nume:* ${safeName}
 📱 *Telefon:* \`${safePhone}\`
@@ -79,6 +81,7 @@ export async function sendEmailNotification(to: string, lead: any) {
                     <p><strong>Telefon:</strong> <a href="tel:${escapeHtml(lead.phone || '')}">${escapeHtml(lead.phone || '')}</a></p>
                     <p><strong>Email:</strong> ${escapeHtml(lead.email || 'N/A')}</p>
                     <p><strong>Mașină:</strong> ${escapeHtml(lead.car_name || 'N/A')}</p>
+                    ${lead.source_url ? `<p><strong>Sursă:</strong> <a href="${lead.source_url}">${lead.source_url}</a></p>` : ''}
                     <hr />
                     <p><strong>Mesaj:</strong></p>
                     <p>${escapeHtml(lead.message || 'N/A')}</p>

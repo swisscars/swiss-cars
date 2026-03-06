@@ -65,6 +65,23 @@
     line-height: 1.8;
 }
 
+@media (max-width: 900px) {
+    .header {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header :global(.ui-decor) {
+        margin: 0 auto !important;
+    }
+
+    .activeText {
+        text-align: center;
+    }
+}
+
 .tabs {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

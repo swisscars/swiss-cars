@@ -27,10 +27,11 @@ export default function CarCard({ car }: Props) {
                         fill
                         className={styles.image}
                         sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        quality={75}
                     />
                 </Link>
-                <div className={styles.priceTag}>
-                    {formatPrice(car.price)} €
+                <div className={`${styles.priceTag} ${!car.is_available ? styles.soldTag : ''}`}>
+                    {car.is_available ? `${formatPrice(car.price)} €` : t('sold')}
                 </div>
                 <div className={styles.favBtn}>
                     <FavoriteButton carId={car.id ?? ''} carSlug={car.slug} carName={`${car.brand} ${car.model}`} />
