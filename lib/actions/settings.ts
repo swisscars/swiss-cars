@@ -1,10 +1,10 @@
 'use server';
 
-import { createClient } from '@/lib/supabase/server';
+import { createClient, createStaticClient } from '@/lib/supabase/server';
 import { revalidatePath } from 'next/cache';
 
 export async function getSettings(key: string) {
-    const supabase = await createClient();
+    const supabase = createStaticClient();
     const { data, error } = await supabase
         .from('site_settings')
         .select('value')

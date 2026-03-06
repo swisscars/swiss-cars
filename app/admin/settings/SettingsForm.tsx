@@ -296,15 +296,26 @@ export default function SettingsForm({
                 }
               />
             </div>
-            <div className={styles.field}>
+            <div className={styles.field} style={{ gridColumn: '1 / -1' }}>
               <label>
                 <MapPin size={14} /> Office Address
               </label>
-              <input
+              <textarea
+                rows={3}
                 value={settings.address || ""}
                 onChange={(e) =>
                   setSettings({ ...settings, address: e.target.value })
                 }
+                style={{
+                  padding: "12px 16px",
+                  borderRadius: "var(--radius-md)",
+                  border: "1px solid var(--color-gray-2)",
+                  background: "var(--color-gray)",
+                  fontSize: "14px",
+                  width: "100%",
+                  resize: "vertical",
+                  fontFamily: "inherit",
+                }}
               />
             </div>
             <div className={styles.field} style={{ gridColumn: '1 / -1' }}>

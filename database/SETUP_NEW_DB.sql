@@ -77,6 +77,9 @@ CREATE TABLE IF NOT EXISTS leads_inquiries (
   phone TEXT NOT NULL,
   email TEXT,
   message TEXT,
+  preferred_date TEXT,
+  form_type TEXT DEFAULT 'inquiry',
+  source_url TEXT,
   is_read BOOLEAN DEFAULT false,
   is_important BOOLEAN DEFAULT false,
   created_at TIMESTAMPTZ DEFAULT NOW()
@@ -256,5 +259,7 @@ CREATE POLICY "Admin Delete" ON storage.objects
 -- ==========================================
 
 INSERT INTO site_settings (key, value)
-VALUES ('contact_info', '{"phone": "+41 78 323 31 50", "email": "info@swisscars.md", "address": "Switzerland", "whatsapp": "+41783233150"}')
+VALUES 
+  ('contact_info', '{"phone": "+41 78 323 31 50", "email": "info@swisscars.md", "address": "Switzerland", "whatsapp": "+41783233150"}'),
+  ('site_config', '{"logo_url": "", "logo_height": 80, "header_height": 80, "gtm_id": ""}')
 ON CONFLICT (key) DO NOTHING;
