@@ -29,13 +29,9 @@
         "view_details": "Подробнее",
         "no_cars": "Нет доступных автомобилей",
         "view_all_inventory": "Весь Сток",
-<<<<<<< Updated upstream
-        "all_cars_title": "Все Автомобили"
-=======
         "all_cars_title": "Все Автомобили",
         "cars_available": "{count} автомобилей в наличии",
         "sold": "Продано"
->>>>>>> Stashed changes
     },
     "about": {
         "subtitle": "Добро пожаловать на официальный сайт SwissCars.md",
@@ -227,9 +223,6 @@
         "contact_form_subtitle": "Мы быстро свяжемся с вами для уточнения деталей и наличия.",
         "leasing_title": "Доступно финансирование",
         "leasing_text": "Этот автомобиль можно приобрести в лизинг с первоначальным взносом от 10%. Свяжитесь с нами для индивидуального предложения.",
-<<<<<<< Updated upstream
-        "leasing_cta": "Калькулятор лизинга"
-=======
         "leasing_cta": "Калькулятор лизинга",
         "similar_cars_subtitle": "Вам может понравиться",
         "similar_cars_title": "Похожие автомобили",
@@ -246,7 +239,6 @@
         "form_submit": "Отправить запрос",
         "whatsapp_message": "Здравствуйте! Меня интересует: {carName}",
         "sold": "Продано"
->>>>>>> Stashed changes
     },
     "errors": {
         "required_fields": "Заполните Имя и Телефон.",

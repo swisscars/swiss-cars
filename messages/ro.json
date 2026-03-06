@@ -29,13 +29,9 @@
     "view_details": "Vezi detalii",
     "no_cars": "Nu sunt mașini disponibile",
     "view_all_inventory": "Tot Stocul",
-<<<<<<< Updated upstream
-    "all_cars_title": "Toate Automobilele"
-=======
     "all_cars_title": "Toate Automobilele",
     "cars_available": "{count} mașini disponibile",
     "sold": "Vândut"
->>>>>>> Stashed changes
   },
   "about": {
     "subtitle": "Bun venit pe pagina oficială SwissCars.md",
@@ -242,9 +238,6 @@
     "contact_form_subtitle": "Te contactăm rapid cu detalii și disponibilitate.",
     "leasing_title": "Finanțare disponibilă",
     "leasing_text": "Acest automobil poate fi achiziționat în leasing cu avans de la 10%. Contactează-ne pentru o ofertă personalizată.",
-<<<<<<< Updated upstream
-    "leasing_cta": "Calculator Leasing"
-=======
     "leasing_cta": "Calculator Leasing",
     "similar_cars_subtitle": "Poate te interesează",
     "similar_cars_title": "Mașini Similare",
@@ -261,7 +254,6 @@
     "form_submit": "Trimite cererea",
     "whatsapp_message": "Bună ziua! Sunt interesat de: {carName}",
     "sold": "Vândut"
->>>>>>> Stashed changes
   },
   "errors": {
     "required_fields": "Completează Numele și Telefonul.",

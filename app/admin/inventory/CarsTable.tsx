@@ -107,13 +107,9 @@ export default function CarsTable({ cars, currentPage, totalPages }: Props) {
             <DataTable
                 data={cars}
                 columns={columns as any}
-                actions={(car) => (
+                actions={(car: Car) => (
                     <div className={styles.actions}>
-<<<<<<< Updated upstream
-                        <Link href={`/en/inventory/${car.slug}`} target="_blank" className={styles.actionBtn}>
-=======
                         <Link href={`/inventory/${car.slug}`} target="_blank" className={styles.actionBtn} title="Vezi pe site">
->>>>>>> Stashed changes
                             <Eye size={16} />
                         </Link>
                         <Link href={`/admin/inventory/${car.id}`} className={styles.actionBtn} title="Editează">

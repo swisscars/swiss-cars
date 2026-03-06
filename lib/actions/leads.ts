@@ -5,9 +5,8 @@ import { checkRateLimit } from '@/lib/utils/rateLimit';
 import { revalidatePath } from 'next/cache';
 import { sendTelegramNotification, sendEmailNotification } from '@/lib/utils/notifications';
 import { getSettings } from './settings';
+import { z } from 'zod';
 
-<<<<<<< Updated upstream
-=======
 const LeadInquirySchema = z.object({
     car_id: z.string().min(1, 'Eroare internă (ID mașină lipsă)'),
     car_name: z.string().min(1, 'Numele mașinii este obligatoriu').max(200),
@@ -17,8 +16,6 @@ const LeadInquirySchema = z.object({
     message: z.string().max(2000, 'Mesajul este prea lung').optional(),
     source_url: z.string().url().optional(),
 });
-
->>>>>>> Stashed changes
 export type LeadInquiry = {
     car_id: string;
     car_name: string;
@@ -44,17 +41,6 @@ export async function submitLeadInquiry(data: LeadInquiry) {
         };
     }
 
-<<<<<<< Updated upstream
-    const supabase = await createClient();
-
-    const { error } = await supabase.from('leads_inquiries').insert({
-        car_id: data.car_id,
-        car_name: data.car_name,
-        name: data.name,
-        phone: data.phone,
-        email: data.email || null,
-        message: data.message || null,
-=======
     const parsed = LeadInquirySchema.safeParse(data);
     if (!parsed.success) {
         const fieldErrors = parsed.error.flatten().fieldErrors;
@@ -76,7 +62,6 @@ export async function submitLeadInquiry(data: LeadInquiry) {
         email: validData.email || null,
         message: validData.message || null,
         source_url: validData.source_url || null,
->>>>>>> Stashed changes
         created_at: new Date().toISOString(),
     });
 

@@ -29,13 +29,9 @@
     "view_details": "View Details",
     "no_cars": "No cars available",
     "view_all_inventory": "View All Inventory",
-<<<<<<< Updated upstream
-    "all_cars_title": "All Cars"
-=======
     "all_cars_title": "All Cars",
     "cars_available": "{count} cars available",
     "sold": "Sold"
->>>>>>> Stashed changes
   },
   "about": {
     "subtitle": "Welcome to the official SwissCars.md page",
@@ -242,9 +238,6 @@
     "contact_form_subtitle": "We'll contact you quickly with details and availability.",
     "leasing_title": "Financing available",
     "leasing_text": "This car can be purchased through leasing with a down payment starting from 10%. Contact us for a personalized offer.",
-<<<<<<< Updated upstream
-    "leasing_cta": "Leasing Calculator"
-=======
     "leasing_cta": "Leasing Calculator",
     "similar_cars_subtitle": "You might also like",
     "similar_cars_title": "Similar Cars",
@@ -261,7 +254,6 @@
     "form_submit": "Send inquiry",
     "whatsapp_message": "Hello! I'm interested in: {carName}",
     "sold": "Sold"
->>>>>>> Stashed changes
   },
   "errors": {
     "required_fields": "Please fill in Name and Phone.",

@@ -79,20 +79,6 @@ export default async function LocaleLayout({ children, params }: Props) {
     const gtmId: string = (settings as any)?.gtm_id || '';
 
     return (
-<<<<<<< Updated upstream
-        <NextIntlClientProvider locale={locale} messages={messages}>
-            <ToastProvider>
-                <GTMScript gtmId={gtmId} />
-                <GoogleAnalytics />
-                <Preloader />
-                <GTMNoscript gtmId={gtmId} />
-                <Header logoUrl={(settings as any)?.logo_url || ''} logoHeight={(settings as any)?.logo_height || 80} phone={(settings as any)?.phone} />
-                {children}
-                <Footer settings={settings} />
-                <WhatsAppFloat phone={(settings as any)?.whatsapp} />
-            </ToastProvider>
-        </NextIntlClientProvider>
-=======
         <html lang={locale} suppressHydrationWarning>
             <body
                 suppressHydrationWarning
@@ -112,6 +98,5 @@ export default async function LocaleLayout({ children, params }: Props) {
                 </NextIntlClientProvider>
             </body>
         </html>
->>>>>>> Stashed changes
     );
 }
