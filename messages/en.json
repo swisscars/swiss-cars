@@ -29,7 +29,13 @@
     "view_details": "View Details",
     "no_cars": "No cars available",
     "view_all_inventory": "View All Inventory",
+<<<<<<< Updated upstream
     "all_cars_title": "All Cars"
+=======
+    "all_cars_title": "All Cars",
+    "cars_available": "{count} cars available",
+    "sold": "Sold"
+>>>>>>> Stashed changes
   },
   "about": {
     "subtitle": "Welcome to the official SwissCars.md page",
@@ -39,6 +45,7 @@
     "advantage2": "Safety",
     "advantage3": "Professionalism",
     "years_experience": "Years of Experience",
+    "cars_delivered": "Cars Delivered",
     "guaranteed": "Guaranteed",
     "every_step": "At Every Step",
     "mission_title": "Passion for Automotive Excellence",
@@ -235,7 +242,26 @@
     "contact_form_subtitle": "We'll contact you quickly with details and availability.",
     "leasing_title": "Financing available",
     "leasing_text": "This car can be purchased through leasing with a down payment starting from 10%. Contact us for a personalized offer.",
+<<<<<<< Updated upstream
     "leasing_cta": "Leasing Calculator"
+=======
+    "leasing_cta": "Leasing Calculator",
+    "similar_cars_subtitle": "You might also like",
+    "similar_cars_title": "Similar Cars",
+    "contact_sidebar_title": "Send an inquiry",
+    "contact_sidebar_subtitle": "We'll contact you quickly with details and availability.",
+    "form_separator": "or send an inquiry",
+    "form_success_title": "Inquiry sent successfully!",
+    "form_success_text": "We will contact you shortly.",
+    "form_name_placeholder": "Your name *",
+    "form_phone_placeholder": "Phone number *",
+    "form_email_placeholder": "Email (optional)",
+    "form_message_placeholder": "Message (optional) — e.g.: I'm interested in {carName}...",
+    "form_loading": "Sending...",
+    "form_submit": "Send inquiry",
+    "whatsapp_message": "Hello! I'm interested in: {carName}",
+    "sold": "Sold"
+>>>>>>> Stashed changes
   },
   "errors": {
     "required_fields": "Please fill in Name and Phone.",

@@ -32,6 +32,7 @@ export default function PartnersSlider({ partners }: Props) {
                                     width={140}
                                     height={60}
                                     className={styles.logoImg}
+                                    quality={70}
                                 />
                             ) : (
                                 <span className={styles.logoText}>{p.name}</span>

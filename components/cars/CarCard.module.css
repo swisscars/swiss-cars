@@ -44,6 +44,14 @@
     padding: 6px 14px;
     border-radius: var(--radius-sm);
     letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.soldTag {
+    background: var(--color-dark);
+    text-transform: uppercase;
+    font-size: 13px;
+    opacity: 0.9;
 }
 
 .favBtn {

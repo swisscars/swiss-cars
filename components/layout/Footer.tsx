@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
-import { useToast } from '@/components/ui/Toast';
+import { useOptionalToast } from '@/components/ui/Toast';
 import { subscribe } from '@/lib/actions/subscribers';
 import styles from './Footer.module.css';
 
@@ -20,12 +20,7 @@ export default function Footer({ settings = {} }: { settings?: any }) {
     const address = settings.address;
 
     // Toast might not be available if Footer is outside ToastProvider
-    let toast: ReturnType<typeof useToast> | null = null;
-    try {
-        toast = useToast();
-    } catch {
-        // Toast not available - fallback to alert
-    }
+    const toast = useOptionalToast();
 
     const handleSubscribe = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -68,6 +63,9 @@ export default function Footer({ settings = {} }: { settings?: any }) {
                             {address ? <p>{address}</p> : <p style={{ color: '#dc2626' }}>⚠️ Adresa lipsește</p>}
                             {emailAddress ? <p><a href={`mailto:${emailAddress}`}>{emailAddress}</a></p> : <p style={{ color: '#dc2626' }}>⚠️ Email lipsește</p>}
                             {phone ? <p><a href={`tel:${phone}`}>{phone}</a></p> : <p style={{ color: '#dc2626' }}>⚠️ Telefon lipsește</p>}
+                            {settings.footer_phones && settings.footer_phones.split(',').map((p: string, idx: number) => (
+                                <p key={idx}><a href={`tel:${p.trim()}`}>{p.trim()}</a></p>
+                            ))}
                         </div>
                         <div className={styles.contactGroup}>
                             <p className={styles.contactTitle}>{t('contact_title')}</p>

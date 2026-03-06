@@ -1,5 +1,5 @@
 .main {
-    padding: 140px 0 80px;
+    padding: var(--header-height) 0 80px;
     background: var(--color-gray);
     min-height: 100vh;
 }

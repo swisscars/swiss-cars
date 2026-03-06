@@ -16,6 +16,15 @@
     font-size: 24px;
     font-family: var(--font-primary);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logoImageWrapper {
+    position: relative;
+    height: 40px;
+    width: 100%;
 }
 
 .brand {
@@ -88,4 +97,42 @@
 
 .logoutBtn:hover {
     color: var(--color-primary);
+}
+
+.closeBtn {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .mobileOpen {
+        transform: translateX(0);
+    }
+
+    .logo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .closeBtn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: none;
+        border: none;
+        color: var(--color-gray-3);
+        cursor: pointer;
+        padding: 4px;
+        transition: color 0.2s;
+    }
+
+    .closeBtn:hover {
+        color: white;
+    }
 }

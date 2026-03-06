@@ -51,14 +51,17 @@ export default function ContactPageClient({
             const res = await fetch('/api/contact', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name, phone, email, message, preferredDate, formType }),
+                body: JSON.stringify({ name, phone, email, message, preferredDate, formType, sourceUrl: typeof window !== 'undefined' ? window.location.href : undefined }),
             });
+            const data = await res.json();
+
             if (res.ok) {
                 setSuccess(true);
             } else {
-                throw new Error();
+                setError(data.error || tError('submit_error'));
             }
-        } catch {
+        } catch (err) {
+            console.error('Submission error:', err);
             setError(tError('submit_error'));
         }
         setLoading(false);
@@ -104,8 +107,8 @@ export default function ContactPageClient({
                     <div className={styles.infoCard}>
                         <div className={styles.iconWrap}><Clock size={26} color="var(--color-primary)" /></div>
                         <h3>{t('schedule')}</h3>
-                        <p>{workingHours || <span style={{ color: '#dc2626' }}>⚠️ Program lipsește</span>}</p>
-                        {workingDaysClosed && <small>{workingDaysClosed}</small>}
+                        <p>{workingHours || t('schedule_hours', { defaultValue: '09:00 - 18:00' })}</p>
+                        <p style={{ marginTop: '5px', fontSize: '13px' }}>{workingDaysClosed || t('schedule_days', { defaultValue: 'Luni — Sâmbătă' })}</p>
                     </div>
                 </div>
 

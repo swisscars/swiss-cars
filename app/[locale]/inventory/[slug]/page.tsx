@@ -28,8 +28,7 @@ export async function generateStaticParams() {
     const supabase = createStaticClient();
     const { data: cars } = await supabase
         .from('cars')
-        .select('slug')
-        .eq('is_available', true);
+        .select('slug');
 
     const params: { locale: string; slug: string }[] = [];
 
@@ -50,8 +49,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     if (!car) return {};
     const primaryImage = car.car_images?.find((img: any) => img.is_primary) || car.car_images?.[0];
     return {
-        title: `${car.brand} ${car.model} ${car.year} | SwissCars.md`,
-        description: `${car.brand} ${car.model} ${car.year} — ${formatPrice(car.price)} €. Import auto din Elveția.`,
+        title: `${car.brand} ${car.model} ${car.year} ${!car.is_available ? '(Vândut)' : ''} | SwissCars.md`,
+        description: `${car.brand} ${car.model} ${car.year} — ${car.is_available ? `${formatPrice(car.price)} €` : 'Vândut'}. Import auto din Elveția.`,
         openGraph: {
             images: primaryImage?.url ? [{ url: primaryImage.url }] : [],
         },
@@ -86,8 +85,45 @@ export default async function CarDetailPage({ params }: Props) {
         return Object.values(desc).find(v => typeof v === 'string' && v.trim().length > 0) as string || '';
     };
 
+    const schema = {
+        "@context": "https://schema.org",
+        "@type": "Vehicle",
+        "name": `${car.brand} ${car.model} ${car.year}`,
+        "image": car.car_images?.map((img: any) => img.url) || [],
+        "brand": {
+            "@type": "Brand",
+            "name": car.brand
+        },
+        "manufacturer": {
+            "@type": "Organization",
+            "name": car.brand
+        },
+        "model": car.model,
+        "vehicleModelDate": String(car.year),
+        "mileageFromOdometer": {
+            "@type": "QuantitativeValue",
+            "value": car.mileage || 0,
+            "unitCode": "KMT"
+        },
+        "fuelType": car.fuel_type || "",
+        "vehicleTransmission": car.transmission || "",
+        "offers": {
+            "@type": "Offer",
+            "priceCurrency": "EUR",
+            "price": car.price,
+            "itemCondition": "https://schema.org/UsedCondition",
+            "availability": car.is_available ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+            "url": `https://swisscars.md/${locale}/inventory/${car.slug}`
+        }
+    };
+
     return (
         <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+            />
+
             <main className={styles.main}>
                 {/* Breadcrumb Header */}
                 <div className={styles.premiumHeader}>
@@ -103,6 +139,41 @@ export default async function CarDetailPage({ params }: Props) {
                         {/* Left: Gallery + Specs */}
                         <div className={styles.content}>
                             <CarGallery images={car.car_images || []} />
+
+                            {/* Mobile-only Sidebar Content */}
+                            <div className={styles.sidebarMobile}>
+                                {/* Price Card */}
+                                <div className={styles.card}>
+                                    <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '12px' }}>
+                                        <div>
+                                            <h1 className={styles.title}>{car.brand} {car.model}</h1>
+                                            <div className={styles.year}>{car.year}</div>
+                                        </div>
+                                        <FavoriteButton carId={car.id ?? ''} carSlug={car.slug} carName={`${car.brand} ${car.model}`} />
+                                    </div>
+
+                                    <div className={styles.priceWrapper}>
+                                        <span className={styles.priceLabel}>{t('price')}</span>
+                                        <div className={`${styles.price} ${!car.is_available ? styles.soldText : ''}`}>
+                                            {car.is_available ? `${formatPrice(car.price)} €` : t('sold')}
+                                        </div>
+                                        {car.is_available && <div className={styles.taxes}>{t('taxes_included')}</div>}
+                                    </div>
+                                </div>
+
+                                {/* Lead Contact Form */}
+                                <div className={styles.card}>
+                                    <h3 className={styles.contactTitle}>{t('contact_sidebar_title')}</h3>
+                                    <p className={styles.contactSubtitle}>{t('contact_sidebar_subtitle')}</p>
+                                    <CarLeadForm
+                                        carId={car.id ?? ''}
+                                        carName={`${car.brand} ${car.model} ${car.year}`}
+                                        carPrice={car.price}
+                                        phoneNumber={config.phone}
+                                        whatsappNumber={config.whatsapp}
+                                    />
+                                </div>
+                            </div>
 
                             <section className={styles.section}>
                                 <h2 className={styles.sectionTitle}>{t('characteristics')}</h2>
@@ -178,7 +249,7 @@ export default async function CarDetailPage({ params }: Props) {
                         </div>
 
                         {/* Right: Sidebar */}
-                        <aside className={styles.sidebar}>
+                        <aside className={`${styles.sidebar} ${styles.sidebarDesktop}`}>
                             <div className={styles.sticky}>
                                 {/* Price Card */}
                                 <div className={styles.card}>
@@ -192,17 +263,23 @@ export default async function CarDetailPage({ params }: Props) {
 
                                     <div className={styles.priceWrapper}>
                                         <span className={styles.priceLabel}>{t('price')}</span>
-                                        <div className={styles.price}>
-                                            {formatPrice(car.price)} €
+                                        <div className={`${styles.price} ${!car.is_available ? styles.soldText : ''}`}>
+                                            {car.is_available ? `${formatPrice(car.price)} €` : t('sold')}
                                         </div>
-                                        <div className={styles.taxes}>{t('taxes_included')}</div>
+                                        {car.is_available && <div className={styles.taxes}>{t('taxes_included')}</div>}
                                     </div>
                                 </div>
 
                                 {/* Lead Contact Form */}
+<<<<<<< Updated upstream
                                 <div className={styles.card} style={{ marginTop: '20px' }}>
                                     <h3 className={styles.contactTitle}>Trimite o cerere</h3>
                                     <p className={styles.contactSubtitle}>Te contactăm rapid cu detalii și disponibilitate.</p>
+=======
+                                <div className={styles.card}>
+                                    <h3 className={styles.contactTitle}>{t('contact_sidebar_title')}</h3>
+                                    <p className={styles.contactSubtitle}>{t('contact_sidebar_subtitle')}</p>
+>>>>>>> Stashed changes
                                     <CarLeadForm
                                         carId={car.id ?? ''}
                                         carName={`${car.brand} ${car.model} ${car.year}`}

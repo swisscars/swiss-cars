@@ -2,7 +2,7 @@
 
 import { useState, useTransition } from 'react';
 import { format } from 'date-fns';
-import { CheckCheck, Eye, EyeOff, Star, StarOff, Trash2, Phone, Mail, Car } from 'lucide-react';
+import { CheckCheck, Eye, EyeOff, Star, StarOff, Trash2, Phone, Mail, Car, Link as LinkIcon } from 'lucide-react';
 import { markLeadRead, markLeadImportant, deleteLead, markAllLeadsRead } from '@/lib/actions/leads';
 import styles from './LeadsTable.module.css';
 
@@ -13,6 +13,7 @@ type Lead = {
     phone: string;
     email: string | null;
     message: string | null;
+    source_url: string | null;
     is_read: boolean;
     is_important: boolean;
     created_at: string;
@@ -150,10 +151,17 @@ export default function LeadsTable({ initialLeads, unreadCount }: Props) {
 
                                 <div className={styles.row2}>
                                     {lead.car_name && (
-                                        <span className={styles.meta}>
-                                            <Car size={13} />
-                                            {lead.car_name}
-                                        </span>
+                                        lead.source_url ? (
+                                            <a href={lead.source_url} target="_blank" rel="noopener noreferrer" className={styles.meta} style={{ textDecoration: 'underline' }}>
+                                                <Car size={13} />
+                                                {lead.car_name}
+                                            </a>
+                                        ) : (
+                                            <span className={styles.meta}>
+                                                <Car size={13} />
+                                                {lead.car_name}
+                                            </span>
+                                        )
                                     )}
                                     <a href={`tel:${lead.phone}`} className={styles.meta}>
                                         <Phone size={13} />

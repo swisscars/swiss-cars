@@ -85,6 +85,34 @@ export default function SettingsForm({
                 }
               />
             </div>
+            <div className={styles.field} style={{ gridColumn: '1 / -1' }}>
+              <label style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <SettingsIcon size={14} /> Global Header Height: <strong>{settings.header_height || 80}px</strong>
+              </label>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginTop: '8px' }}>
+                <span style={{ fontSize: '12px', color: '#666' }}>60px</span>
+                <input
+                  type="range"
+                  min="60"
+                  max="300"
+                  step="5"
+                  value={settings.header_height || 80}
+                  onChange={(e) => setSettings({ ...settings, header_height: parseInt(e.target.value) })}
+                  style={{
+                    flex: 1,
+                    height: '8px',
+                    borderRadius: '4px',
+                    background: `linear-gradient(to right, var(--color-primary) 0%, var(--color-primary) ${(((settings.header_height || 80) - 60) / (300 - 60)) * 100}%, #e5e7eb ${(((settings.header_height || 80) - 60) / (300 - 60)) * 100}%, #e5e7eb 100%)`,
+                    appearance: 'none',
+                    cursor: 'pointer'
+                  }}
+                />
+                <span style={{ fontSize: '12px', color: '#666' }}>300px</span>
+              </div>
+              <p style={{ fontSize: '12px', color: '#999', marginTop: '8px' }}>
+                Această valoare ajustează automat spațiul de sub header pe toate paginile pentru a evita suprapunerea conținutului sau spațiile prea mari.
+              </p>
+            </div>
             <div className={styles.field} style={{ gridColumn: "1 / -1" }}>
               <label>SEO Site Description (Meta)</label>
               <textarea
@@ -175,12 +203,12 @@ export default function SettingsForm({
                   marginTop: "8px",
                 }}
               >
-                <span style={{ fontSize: "12px", color: "#666" }}>60px</span>
+                <span style={{ fontSize: "12px", color: "#666" }}>40px</span>
                 <input
                   type="range"
-                  min="60"
-                  max="120"
-                  step="10"
+                  min="40"
+                  max="400"
+                  step="5"
                   value={settings.logo_height || 80}
                   onChange={(e) =>
                     setSettings({
@@ -192,12 +220,12 @@ export default function SettingsForm({
                     flex: 1,
                     height: "8px",
                     borderRadius: "4px",
-                    background: `linear-gradient(to right, var(--color-primary) 0%, var(--color-primary) ${(((settings.logo_height || 80) - 60) / 60) * 100}%, #e5e7eb ${(((settings.logo_height || 80) - 60) / 60) * 100}%, #e5e7eb 100%)`,
+                    background: `linear-gradient(to right, var(--color-primary) 0%, var(--color-primary) ${(((settings.logo_height || 80) - 40) / (400 - 40)) * 100}%, #e5e7eb ${(((settings.logo_height || 80) - 40) / (400 - 40)) * 100}%, #e5e7eb 100%)`,
                     appearance: "none",
                     cursor: "pointer",
                   }}
                 />
-                <span style={{ fontSize: "12px", color: "#666" }}>120px</span>
+                <span style={{ fontSize: "12px", color: "#666" }}>400px</span>
               </div>
               <div
                 style={{
@@ -278,6 +306,21 @@ export default function SettingsForm({
                   setSettings({ ...settings, address: e.target.value })
                 }
               />
+            </div>
+            <div className={styles.field} style={{ gridColumn: '1 / -1' }}>
+              <label>
+                <Phone size={14} /> Additional Phone Numbers (Footer Only)
+              </label>
+              <input
+                placeholder="022 123 456, 069 999 888"
+                value={settings.footer_phones || ""}
+                onChange={(e) =>
+                  setSettings({ ...settings, footer_phones: e.target.value })
+                }
+              />
+              <p style={{ fontSize: '12px', color: '#999', marginTop: '4px' }}>
+                Poți adăuga mai multe numere separate prin virgulă. Acestea vor apărea doar în subsolul paginii (footer), sub numărul principal.
+              </p>
             </div>
             <div className={styles.field}>
               <label>

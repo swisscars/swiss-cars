@@ -156,43 +156,43 @@ export default function HomepageForm({ initialData }: { initialData?: any }) {
                                         />
                                     </div>
                                     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '12px' }}>
+                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                                             <div>
-                                                <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px' }}>Slogan (RO)</label>
-                                                <input {...register(`hero_slides.${index}.slogan.ro`)} style={{ width: '100%', padding: '8px' }} />
+                                                <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', color: '#888' }}>Slogan (RO)</label>
+                                                <input {...register(`hero_slides.${index}.slogan.ro`)} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
                                             </div>
                                             <div>
-                                                <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px' }}>Slogan (RU)</label>
-                                                <input {...register(`hero_slides.${index}.slogan.ru`)} style={{ width: '100%', padding: '8px' }} />
+                                                <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', color: '#888' }}>Slogan (RU)</label>
+                                                <input {...register(`hero_slides.${index}.slogan.ru`)} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
                                             </div>
                                             <div>
-                                                <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px' }}>Slogan (EN)</label>
-                                                <input {...register(`hero_slides.${index}.slogan.en`)} style={{ width: '100%', padding: '8px' }} />
+                                                <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', color: '#888' }}>Slogan (EN)</label>
+                                                <input {...register(`hero_slides.${index}.slogan.en`)} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
                                             </div>
                                         </div>
 
-                                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '12px' }}>
+                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                                             <div>
-                                                <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', fontWeight: 'bold' }}>Main Title (RO)</label>
-                                                <input {...register(`hero_slides.${index}.title.ro`)} style={{ width: '100%', padding: '8px', fontWeight: 'bold' }} />
+                                                <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', fontWeight: 'bold', color: '#888' }}>Main Title (RO)</label>
+                                                <input {...register(`hero_slides.${index}.title.ro`)} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px', fontWeight: 'bold' }} />
                                             </div>
                                             <div>
-                                                <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', fontWeight: 'bold' }}>Main Title (RU)</label>
-                                                <input {...register(`hero_slides.${index}.title.ru`)} style={{ width: '100%', padding: '8px', fontWeight: 'bold' }} />
+                                                <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', fontWeight: 'bold', color: '#888' }}>Main Title (RU)</label>
+                                                <input {...register(`hero_slides.${index}.title.ru`)} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px', fontWeight: 'bold' }} />
                                             </div>
                                             <div>
-                                                <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', fontWeight: 'bold' }}>Main Title (EN)</label>
-                                                <input {...register(`hero_slides.${index}.title.en`)} style={{ width: '100%', padding: '8px', fontWeight: 'bold' }} />
+                                                <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', fontWeight: 'bold', color: '#888' }}>Main Title (EN)</label>
+                                                <input {...register(`hero_slides.${index}.title.en`)} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px', fontWeight: 'bold' }} />
                                             </div>
                                         </div>
 
                                         <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '12px' }}>
                                             <div>
-                                                <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px' }}>Button Text (ex. RO, RU, EN)</label>
-                                                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '8px' }}>
-                                                    <input {...register(`hero_slides.${index}.cta.ro`)} placeholder="RO" style={{ width: '100%', padding: '8px' }} />
-                                                    <input {...register(`hero_slides.${index}.cta.ru`)} placeholder="RU" style={{ width: '100%', padding: '8px' }} />
-                                                    <input {...register(`hero_slides.${index}.cta.en`)} placeholder="EN" style={{ width: '100%', padding: '8px' }} />
+                                                <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', color: '#888' }}>Button Text (RO, RU, EN)</label>
+                                                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                                                    <input {...register(`hero_slides.${index}.cta.ro`)} placeholder="RO" style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
+                                                    <input {...register(`hero_slides.${index}.cta.ru`)} placeholder="RU" style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
+                                                    <input {...register(`hero_slides.${index}.cta.en`)} placeholder="EN" style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
                                                 </div>
                                             </div>
                                             <div>
@@ -216,50 +216,50 @@ export default function HomepageForm({ initialData }: { initialData?: any }) {
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
                         {/* Subtitles */}
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '12px' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                             <div>
-                                <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px' }}>Subtitle (RO)</label>
-                                <input {...register('about_section.subtitle.ro')} style={{ width: '100%', padding: '8px' }} />
+                                <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', color: '#888' }}>Subtitle (RO)</label>
+                                <input {...register('about_section.subtitle.ro')} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
                             </div>
                             <div>
-                                <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px' }}>Subtitle (RU)</label>
-                                <input {...register('about_section.subtitle.ru')} style={{ width: '100%', padding: '8px' }} />
+                                <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', color: '#888' }}>Subtitle (RU)</label>
+                                <input {...register('about_section.subtitle.ru')} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
                             </div>
                             <div>
-                                <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px' }}>Subtitle (EN)</label>
-                                <input {...register('about_section.subtitle.en')} style={{ width: '100%', padding: '8px' }} />
+                                <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', color: '#888' }}>Subtitle (EN)</label>
+                                <input {...register('about_section.subtitle.en')} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
                             </div>
                         </div>
 
                         {/* Titles */}
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '12px' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                             <div>
-                                <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', fontWeight: 'bold' }}>Title (RO)</label>
-                                <input {...register('about_section.title.ro')} style={{ width: '100%', padding: '8px', fontWeight: 'bold' }} />
+                                <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', fontWeight: 'bold', color: '#888' }}>Title (RO)</label>
+                                <input {...register('about_section.title.ro')} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px', fontWeight: 'bold' }} />
                             </div>
                             <div>
-                                <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', fontWeight: 'bold' }}>Title (RU)</label>
-                                <input {...register('about_section.title.ru')} style={{ width: '100%', padding: '8px', fontWeight: 'bold' }} />
+                                <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', fontWeight: 'bold', color: '#888' }}>Title (RU)</label>
+                                <input {...register('about_section.title.ru')} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px', fontWeight: 'bold' }} />
                             </div>
                             <div>
-                                <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', fontWeight: 'bold' }}>Title (EN)</label>
-                                <input {...register('about_section.title.en')} style={{ width: '100%', padding: '8px', fontWeight: 'bold' }} />
+                                <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', fontWeight: 'bold', color: '#888' }}>Title (EN)</label>
+                                <input {...register('about_section.title.en')} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px', fontWeight: 'bold' }} />
                             </div>
                         </div>
 
                         {/* Texts */}
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '12px' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                             <div>
-                                <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px' }}>Text Paragraph (RO)</label>
-                                <textarea {...register('about_section.text.ro')} rows={6} style={{ width: '100%', padding: '8px', resize: 'vertical' }} />
+                                <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', color: '#888' }}>Text Paragraph (RO)</label>
+                                <textarea {...register('about_section.text.ro')} rows={4} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px', resize: 'vertical' }} />
                             </div>
                             <div>
-                                <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px' }}>Text Paragraph (RU)</label>
-                                <textarea {...register('about_section.text.ru')} rows={6} style={{ width: '100%', padding: '8px', resize: 'vertical' }} />
+                                <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', color: '#888' }}>Text Paragraph (RU)</label>
+                                <textarea {...register('about_section.text.ru')} rows={4} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px', resize: 'vertical' }} />
                             </div>
                             <div>
-                                <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px' }}>Text Paragraph (EN)</label>
-                                <textarea {...register('about_section.text.en')} rows={6} style={{ width: '100%', padding: '8px', resize: 'vertical' }} />
+                                <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', color: '#888' }}>Text Paragraph (EN)</label>
+                                <textarea {...register('about_section.text.en')} rows={4} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px', resize: 'vertical' }} />
                             </div>
                         </div>
                     </div>
@@ -272,41 +272,43 @@ export default function HomepageForm({ initialData }: { initialData?: any }) {
                     </div>
 
                     <h3 style={{ fontSize: '14px', fontWeight: 'bold', borderBottom: '1px solid #eee', paddingBottom: '8px', marginBottom: '16px' }}>Counters</h3>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '24px', marginBottom: '32px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', marginBottom: '32px' }}>
                         {[0, 1, 2].map((i) => (
-                            <div key={i} style={{ padding: '16px', border: '1px solid #eee', borderRadius: '6px', background: '#fcfcfc' }}>
-                                <div style={{ fontSize: '12px', fontWeight: 'bold', marginBottom: '12px', color: '#888' }}>Counter {i + 1}</div>
-                                <div style={{ display: 'flex', gap: '8px', marginBottom: '12px' }}>
-                                    <div style={{ flex: 2 }}>
-                                        <label style={{ fontSize: '11px', display: 'block' }}>Number</label>
-                                        <input type="number" {...register(`stats_section.stats.${i}.count`)} style={{ width: '100%', padding: '6px' }} />
+                            <div key={i} style={{ padding: '20px', border: '1px solid #eee', borderRadius: '8px', background: '#fcfcfc' }}>
+                                <div style={{ fontSize: '13px', fontWeight: 'bold', marginBottom: '16px', color: '#666', borderBottom: '1px solid #f0f0f0', paddingBottom: '8px' }}>Counter {i + 1}</div>
+                                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
+                                    <div>
+                                        <label style={{ fontSize: '11px', display: 'block', color: '#888', marginBottom: '4px' }}>Number</label>
+                                        <input type="number" {...register(`stats_section.stats.${i}.count`)} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
                                     </div>
-                                    <div style={{ flex: 1 }}>
-                                        <label style={{ fontSize: '11px', display: 'block' }}>Suffix (+)</label>
-                                        <input {...register(`stats_section.stats.${i}.suffix`)} style={{ width: '100%', padding: '6px' }} />
+                                    <div>
+                                        <label style={{ fontSize: '11px', display: 'block', color: '#888', marginBottom: '4px' }}>Suffix (+)</label>
+                                        <input {...register(`stats_section.stats.${i}.suffix`)} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
                                     </div>
                                 </div>
-                                <label style={{ fontSize: '11px', display: 'block' }}>Label (RO, RU, EN)</label>
-                                <input {...register(`stats_section.stats.${i}.label.ro`)} placeholder="RO" style={{ width: '100%', padding: '6px', marginBottom: '4px' }} />
-                                <input {...register(`stats_section.stats.${i}.label.ru`)} placeholder="RU" style={{ width: '100%', padding: '6px', marginBottom: '4px' }} />
-                                <input {...register(`stats_section.stats.${i}.label.en`)} placeholder="EN" style={{ width: '100%', padding: '6px' }} />
+                                <label style={{ fontSize: '11px', display: 'block', color: '#888', marginBottom: '8px' }}>Label (RO, RU, EN)</label>
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                                    <input {...register(`stats_section.stats.${i}.label.ro`)} placeholder="RO" style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
+                                    <input {...register(`stats_section.stats.${i}.label.ru`)} placeholder="RU" style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
+                                    <input {...register(`stats_section.stats.${i}.label.en`)} placeholder="EN" style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
+                                </div>
                             </div>
                         ))}
                     </div>
 
                     <h3 style={{ fontSize: '14px', fontWeight: 'bold', borderBottom: '1px solid #eee', paddingBottom: '8px', marginBottom: '16px' }}>Partnerships Block</h3>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '12px', marginBottom: '16px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '24px' }}>
                         <div>
-                            <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px' }}>Title (RO)</label>
-                            <input {...register('stats_section.partnerships.title.ro')} style={{ width: '100%', padding: '8px' }} />
+                            <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', color: '#888' }}>Title (RO)</label>
+                            <input {...register('stats_section.partnerships.title.ro')} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
                         </div>
                         <div>
-                            <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px' }}>Title (RU)</label>
-                            <input {...register('stats_section.partnerships.title.ru')} style={{ width: '100%', padding: '8px' }} />
+                            <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', color: '#888' }}>Title (RU)</label>
+                            <input {...register('stats_section.partnerships.title.ru')} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
                         </div>
                         <div>
-                            <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px' }}>Title (EN)</label>
-                            <input {...register('stats_section.partnerships.title.en')} style={{ width: '100%', padding: '8px' }} />
+                            <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', color: '#888' }}>Title (EN)</label>
+                            <input {...register('stats_section.partnerships.title.en')} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
                         </div>
                     </div>
 
@@ -331,18 +333,18 @@ export default function HomepageForm({ initialData }: { initialData?: any }) {
                         </div>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '12px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                         <div>
-                            <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px' }}>Text Paragraph (RO)</label>
-                            <textarea {...register('stats_section.partnerships.text.ro')} rows={4} style={{ width: '100%', padding: '8px', resize: 'vertical' }} />
+                            <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', color: '#888' }}>Text Paragraph (RO)</label>
+                            <textarea {...register('stats_section.partnerships.text.ro')} rows={4} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px', resize: 'vertical' }} />
                         </div>
                         <div>
-                            <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px' }}>Text Paragraph (RU)</label>
-                            <textarea {...register('stats_section.partnerships.text.ru')} rows={4} style={{ width: '100%', padding: '8px', resize: 'vertical' }} />
+                            <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', color: '#888' }}>Text Paragraph (RU)</label>
+                            <textarea {...register('stats_section.partnerships.text.ru')} rows={4} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px', resize: 'vertical' }} />
                         </div>
                         <div>
-                            <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px' }}>Text Paragraph (EN)</label>
-                            <textarea {...register('stats_section.partnerships.text.en')} rows={4} style={{ width: '100%', padding: '8px', resize: 'vertical' }} />
+                            <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', color: '#888' }}>Text Paragraph (EN)</label>
+                            <textarea {...register('stats_section.partnerships.text.en')} rows={4} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px', resize: 'vertical' }} />
                         </div>
                     </div>
                 </section>
@@ -378,28 +380,28 @@ export default function HomepageForm({ initialData }: { initialData?: any }) {
                     </div>
 
                     <h3 style={{ fontSize: '14px', fontWeight: 'bold', borderBottom: '1px solid #eee', paddingBottom: '8px', marginBottom: '16px' }}>Service Tabs (max 6)</h3>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
                         {[0, 1, 2, 3, 4, 5].map((i) => (
-                            <div key={i} style={{ padding: '16px', border: '1px solid #eee', borderRadius: '6px', background: '#fcfcfc' }}>
-                                <div style={{ fontSize: '12px', fontWeight: 'bold', marginBottom: '12px', color: '#888' }}>Tab {i + 1}</div>
-                                <div style={{ display: 'flex', gap: '8px', marginBottom: '12px' }}>
+                            <div key={i} style={{ padding: '20px', border: '1px solid #eee', borderRadius: '8px', background: '#fcfcfc' }}>
+                                <div style={{ fontSize: '13px', fontWeight: 'bold', marginBottom: '16px', color: '#666', borderBottom: '1px solid #f0f0f0', paddingBottom: '8px' }}>Tab {i + 1}</div>
+                                <div style={{ display: 'flex', gap: '16px', marginBottom: '16px' }}>
                                     <div style={{ width: '60px' }}>
-                                        <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px' }}>Icon</label>
-                                        <input {...register(`services_section.services.${i}.icon`)} style={{ width: '100%', padding: '8px', textAlign: 'center', fontSize: '16px' }} />
+                                        <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', color: '#888' }}>Icon</label>
+                                        <input {...register(`services_section.services.${i}.icon`)} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px', textAlign: 'center', fontSize: '16px' }} />
                                     </div>
-                                    <div style={{ flex: 1, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
+                                    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '12px' }}>
                                         <div>
-                                            <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px' }}>Name (RO)</label>
-                                            <input {...register(`services_section.services.${i}.name.ro`)} style={{ width: '100%', padding: '8px' }} />
+                                            <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', color: '#888' }}>Name (RO)</label>
+                                            <input {...register(`services_section.services.${i}.name.ro`)} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
                                         </div>
                                         <div>
-                                            <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px' }}>Short (RO)</label>
-                                            <input {...register(`services_section.services.${i}.short.ro`)} style={{ width: '100%', padding: '8px' }} />
+                                            <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', color: '#888' }}>Short Result (RO)</label>
+                                            <input {...register(`services_section.services.${i}.short.ro`)} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
                                         </div>
                                     </div>
                                 </div>
-                                <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px' }}>Full Description (RO)</label>
-                                <textarea {...register(`services_section.services.${i}.full.ro`)} rows={2} style={{ width: '100%', padding: '8px', resize: 'vertical' }} />
+                                <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', color: '#888' }}>Full Description (RO)</label>
+                                <textarea {...register(`services_section.services.${i}.full.ro`)} rows={2} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px', resize: 'vertical' }} />
                             </div>
                         ))}
                     </div>
@@ -411,33 +413,33 @@ export default function HomepageForm({ initialData }: { initialData?: any }) {
                         <h2 style={{ fontSize: '18px', fontWeight: 'bold' }}>Leasing Section</h2>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '12px', marginBottom: '16px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '24px' }}>
                         <div>
-                            <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', fontWeight: 'bold' }}>Title (RO)</label>
-                            <input {...register('leasing_section.title.ro')} style={{ width: '100%', padding: '8px' }} />
+                            <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', fontWeight: 'bold', color: '#888' }}>Title (RO)</label>
+                            <input {...register('leasing_section.title.ro')} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
                         </div>
                         <div>
-                            <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', fontWeight: 'bold' }}>Title (RU)</label>
-                            <input {...register('leasing_section.title.ru')} style={{ width: '100%', padding: '8px' }} />
+                            <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', fontWeight: 'bold', color: '#888' }}>Title (RU)</label>
+                            <input {...register('leasing_section.title.ru')} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
                         </div>
                         <div>
-                            <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', fontWeight: 'bold' }}>Title (EN)</label>
-                            <input {...register('leasing_section.title.en')} style={{ width: '100%', padding: '8px' }} />
+                            <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', fontWeight: 'bold', color: '#888' }}>Title (EN)</label>
+                            <input {...register('leasing_section.title.en')} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
                         </div>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
                         <div>
-                            <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px' }}>Text Block 1 (RO, RU, EN)</label>
-                            <textarea {...register('leasing_section.text1.ro')} placeholder="RO" rows={3} style={{ width: '100%', padding: '8px', marginBottom: '4px', resize: 'vertical' }} />
-                            <textarea {...register('leasing_section.text1.ru')} placeholder="RU" rows={3} style={{ width: '100%', padding: '8px', marginBottom: '4px', resize: 'vertical' }} />
-                            <textarea {...register('leasing_section.text1.en')} placeholder="EN" rows={3} style={{ width: '100%', padding: '8px', resize: 'vertical' }} />
+                            <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', color: '#888' }}>Text Block 1 (RO, RU, EN)</label>
+                            <textarea {...register('leasing_section.text1.ro')} placeholder="RO" rows={3} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px', marginBottom: '8px', resize: 'vertical' }} />
+                            <textarea {...register('leasing_section.text1.ru')} placeholder="RU" rows={3} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px', marginBottom: '8px', resize: 'vertical' }} />
+                            <textarea {...register('leasing_section.text1.en')} placeholder="EN" rows={3} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px', resize: 'vertical' }} />
                         </div>
                         <div>
-                            <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px' }}>Text Block 2 (RO, RU, EN)</label>
-                            <textarea {...register('leasing_section.text2.ro')} placeholder="RO" rows={3} style={{ width: '100%', padding: '8px', marginBottom: '4px', resize: 'vertical' }} />
-                            <textarea {...register('leasing_section.text2.ru')} placeholder="RU" rows={3} style={{ width: '100%', padding: '8px', marginBottom: '4px', resize: 'vertical' }} />
-                            <textarea {...register('leasing_section.text2.en')} placeholder="EN" rows={3} style={{ width: '100%', padding: '8px', resize: 'vertical' }} />
+                            <label style={{ fontSize: '11px', display: 'block', marginBottom: '4px', color: '#888' }}>Text Block 2 (RO, RU, EN)</label>
+                            <textarea {...register('leasing_section.text2.ro')} placeholder="RO" rows={3} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px', marginBottom: '8px', resize: 'vertical' }} />
+                            <textarea {...register('leasing_section.text2.ru')} placeholder="RU" rows={3} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px', marginBottom: '8px', resize: 'vertical' }} />
+                            <textarea {...register('leasing_section.text2.en')} placeholder="EN" rows={3} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px', resize: 'vertical' }} />
                         </div>
                     </div>
                 </section>
@@ -448,32 +450,32 @@ export default function HomepageForm({ initialData }: { initialData?: any }) {
                         <h2 style={{ fontSize: '18px', fontWeight: 'bold' }}>Contact Banner Section</h2>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                            <label style={{ fontSize: '11px', fontWeight: 'bold' }}>Banner Title (RO, RU, EN)</label>
-                            <input {...register('contact_banner.title.ro')} placeholder="RO" style={{ width: '100%', padding: '8px' }} />
-                            <input {...register('contact_banner.title.ru')} placeholder="RU" style={{ width: '100%', padding: '8px' }} />
-                            <input {...register('contact_banner.title.en')} placeholder="EN" style={{ width: '100%', padding: '8px' }} />
+                            <label style={{ fontSize: '11px', fontWeight: 'bold', color: '#888' }}>Banner Title (RO, RU, EN)</label>
+                            <input {...register('contact_banner.title.ro')} placeholder="RO" style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
+                            <input {...register('contact_banner.title.ru')} placeholder="RU" style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
+                            <input {...register('contact_banner.title.en')} placeholder="EN" style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
                         </div>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                            <label style={{ fontSize: '11px', fontWeight: 'bold' }}>Banner Text (RO, RU, EN)</label>
-                            <input {...register('contact_banner.text.ro')} placeholder="RO" style={{ width: '100%', padding: '8px' }} />
-                            <input {...register('contact_banner.text.ru')} placeholder="RU" style={{ width: '100%', padding: '8px' }} />
-                            <input {...register('contact_banner.text.en')} placeholder="EN" style={{ width: '100%', padding: '8px' }} />
+                            <label style={{ fontSize: '11px', fontWeight: 'bold', color: '#888' }}>Banner Text (RO, RU, EN)</label>
+                            <input {...register('contact_banner.text.ro')} placeholder="RO" style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
+                            <input {...register('contact_banner.text.ru')} placeholder="RU" style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
+                            <input {...register('contact_banner.text.en')} placeholder="EN" style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
                         </div>
                     </div>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginTop: '20px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', marginTop: '20px' }}>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                            <label style={{ fontSize: '11px', fontWeight: 'bold' }}>Question Text (RO, RU, EN)</label>
-                            <input {...register('contact_banner.question.ro')} placeholder="RO" style={{ width: '100%', padding: '8px' }} />
-                            <input {...register('contact_banner.question.ru')} placeholder="RU" style={{ width: '100%', padding: '8px' }} />
-                            <input {...register('contact_banner.question.en')} placeholder="EN" style={{ width: '100%', padding: '8px' }} />
+                            <label style={{ fontSize: '11px', fontWeight: 'bold', color: '#888' }}>Question Text (RO, RU, EN)</label>
+                            <input {...register('contact_banner.question.ro')} placeholder="RO" style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
+                            <input {...register('contact_banner.question.ru')} placeholder="RU" style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
+                            <input {...register('contact_banner.question.en')} placeholder="EN" style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
                         </div>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                            <label style={{ fontSize: '11px', fontWeight: 'bold' }}>CTA Button (RO, RU, EN)</label>
-                            <input {...register('contact_banner.cta.ro')} placeholder="RO" style={{ width: '100%', padding: '8px' }} />
-                            <input {...register('contact_banner.cta.ru')} placeholder="RU" style={{ width: '100%', padding: '8px' }} />
-                            <input {...register('contact_banner.cta.en')} placeholder="EN" style={{ width: '100%', padding: '8px' }} />
+                            <label style={{ fontSize: '11px', fontWeight: 'bold', color: '#888' }}>CTA Button (RO, RU, EN)</label>
+                            <input {...register('contact_banner.cta.ro')} placeholder="RO" style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
+                            <input {...register('contact_banner.cta.ru')} placeholder="RU" style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
+                            <input {...register('contact_banner.cta.en')} placeholder="EN" style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
                         </div>
                     </div>
                 </section>
@@ -484,29 +486,33 @@ export default function HomepageForm({ initialData }: { initialData?: any }) {
                         <h2 style={{ fontSize: '18px', fontWeight: 'bold' }}>Why Us (FAQ) Section</h2>
                     </div>
 
-                    <div style={{ marginBottom: '20px' }}>
-                        <label style={{ fontSize: '11px', fontWeight: 'bold', display: 'block' }}>Main Title (RO, RU, EN)</label>
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '12px', marginTop: '8px' }}>
-                            <input {...register('why_us_section.title.ro')} placeholder="RO" style={{ width: '100%', padding: '8px' }} />
-                            <input {...register('why_us_section.title.ru')} placeholder="RU" style={{ width: '100%', padding: '8px' }} />
-                            <input {...register('why_us_section.title.en')} placeholder="EN" style={{ width: '100%', padding: '8px' }} />
+                    <div style={{ marginBottom: '24px' }}>
+                        <label style={{ fontSize: '11px', fontWeight: 'bold', display: 'block', color: '#888', marginBottom: '8px' }}>Main Title (RO, RU, EN)</label>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                            <input {...register('why_us_section.title.ro')} placeholder="RO" style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
+                            <input {...register('why_us_section.title.ru')} placeholder="RU" style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
+                            <input {...register('why_us_section.title.en')} placeholder="EN" style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
                         </div>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
                         {[0, 1, 2, 3].map((i) => (
-                            <div key={i} style={{ border: '1px solid #eee', padding: '16px', borderRadius: '8px', background: '#fcfcfc' }}>
-                                <div style={{ fontSize: '12px', fontWeight: 'bold', marginBottom: '12px', color: '#888' }}>Question {i + 1}</div>
+                            <div key={i} style={{ border: '1px solid #eee', padding: '20px', borderRadius: '8px', background: '#fcfcfc' }}>
+                                <div style={{ fontSize: '13px', fontWeight: 'bold', marginBottom: '16px', color: '#666', borderBottom: '1px solid #f0f0f0', paddingBottom: '8px' }}>Question {i + 1}</div>
 
-                                <label style={{ fontSize: '11px', fontWeight: 'bold', display: 'block', marginBottom: '8px' }}>Title</label>
-                                <input {...register(`why_us_section.items.${i}.title.ro`)} placeholder="RO" style={{ width: '100%', padding: '6px', marginBottom: '4px' }} />
-                                <input {...register(`why_us_section.items.${i}.title.ru`)} placeholder="RU" style={{ width: '100%', padding: '6px', marginBottom: '4px' }} />
-                                <input {...register(`why_us_section.items.${i}.title.en`)} placeholder="EN" style={{ width: '100%', padding: '6px', marginBottom: '12px' }} />
+                                <label style={{ fontSize: '11px', fontWeight: 'bold', display: 'block', marginBottom: '8px', color: '#888' }}>Title (RO, RU, EN)</label>
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '16px' }}>
+                                    <input {...register(`why_us_section.items.${i}.title.ro`)} placeholder="RO" style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
+                                    <input {...register(`why_us_section.items.${i}.title.ru`)} placeholder="RU" style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
+                                    <input {...register(`why_us_section.items.${i}.title.en`)} placeholder="EN" style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }} />
+                                </div>
 
-                                <label style={{ fontSize: '11px', fontWeight: 'bold', display: 'block', marginBottom: '8px' }}>Text</label>
-                                <textarea {...register(`why_us_section.items.${i}.text.ro`)} placeholder="RO" rows={2} style={{ width: '100%', padding: '6px', marginBottom: '4px' }} />
-                                <textarea {...register(`why_us_section.items.${i}.text.ru`)} placeholder="RU" rows={2} style={{ width: '100%', padding: '6px', marginBottom: '4px' }} />
-                                <textarea {...register(`why_us_section.items.${i}.text.en`)} placeholder="EN" rows={2} style={{ width: '100%', padding: '6px' }} />
+                                <label style={{ fontSize: '11px', fontWeight: 'bold', display: 'block', marginBottom: '8px', color: '#888' }}>Text (RO, RU, EN)</label>
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                                    <textarea {...register(`why_us_section.items.${i}.text.ro`)} placeholder="RO" rows={2} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px', resize: 'vertical' }} />
+                                    <textarea {...register(`why_us_section.items.${i}.text.ru`)} placeholder="RU" rows={2} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px', resize: 'vertical' }} />
+                                    <textarea {...register(`why_us_section.items.${i}.text.en`)} placeholder="EN" rows={2} style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px', resize: 'vertical' }} />
+                                </div>
                             </div>
                         ))}
                     </div>

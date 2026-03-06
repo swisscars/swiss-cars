@@ -34,13 +34,21 @@ export default function CarLeadForm({ carId, carName, carPrice, phoneNumber, wha
         setLoading(true);
         setError('');
 
-        const result = await submitLeadInquiry({ car_id: carId, car_name: carName, name, phone, email, message });
+        const result = await submitLeadInquiry({
+            car_id: carId,
+            car_name: carName,
+            name,
+            phone,
+            email,
+            message,
+            source_url: typeof window !== 'undefined' ? window.location.href : undefined
+        });
 
         setLoading(false);
         if (result.success) {
             setSuccess(true);
         } else {
-            setError(t('submit_error'));
+            setError(result.error || t('submit_error'));
         }
     };
 

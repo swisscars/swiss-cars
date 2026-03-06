@@ -17,6 +17,7 @@ export default async function SettingsPage() {
         notification_email: '',
         telegram_bot_token: '',
         telegram_chat_id: '',
+        header_height: 80,
     };
 
     const savedSettings = await getSettings('site_config');

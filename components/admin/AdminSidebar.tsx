@@ -13,7 +13,9 @@ import {
     Inbox,
     Mail,
     Languages,
+    X,
 } from 'lucide-react';
+import Image from 'next/image';
 import { signOut } from '@/lib/actions/auth';
 import styles from './AdminSidebar.module.css';
 
@@ -31,9 +33,12 @@ const MENU_ITEMS = [
 
 interface AdminSidebarProps {
     userEmail?: string;
+    isOpen?: boolean;
+    onClose?: () => void;
+    logoUrl?: string;
 }
 
-export default function AdminSidebar({ userEmail }: AdminSidebarProps) {
+export default function AdminSidebar({ userEmail, isOpen, onClose, logoUrl }: AdminSidebarProps) {
     const pathname = usePathname();
 
     const handleLogout = async () => {
@@ -41,10 +46,29 @@ export default function AdminSidebar({ userEmail }: AdminSidebarProps) {
     };
 
     return (
-        <aside className={styles.sidebar}>
+        <aside className={`${styles.sidebar} ${isOpen ? styles.mobileOpen : ''}`}>
             <div className={styles.logo}>
-                <span className={styles.brand}>Swiss</span>
-                <span className={styles.brandBold}>Cars</span>
+                {logoUrl ? (
+                    <div className={styles.logoImageWrapper}>
+                        <Image
+                            src={logoUrl}
+                            alt="SwissCars Logo"
+                            fill
+                            style={{ objectFit: 'contain' }}
+                            sizes="120px"
+                        />
+                    </div>
+                ) : (
+                    <div>
+                        <span className={styles.brand}>Swiss</span>
+                        <span className={styles.brandBold}>Cars</span>
+                    </div>
+                )}
+                {onClose && (
+                    <button className={styles.closeBtn} onClick={onClose} aria-label="Close menu">
+                        <X size={24} />
+                    </button>
+                )}
             </div>
 
             <nav className={styles.nav}>

@@ -6,6 +6,19 @@ import { revalidatePath } from 'next/cache';
 import { sendTelegramNotification, sendEmailNotification } from '@/lib/utils/notifications';
 import { getSettings } from './settings';
 
+<<<<<<< Updated upstream
+=======
+const LeadInquirySchema = z.object({
+    car_id: z.string().min(1, 'Eroare internă (ID mașină lipsă)'),
+    car_name: z.string().min(1, 'Numele mașinii este obligatoriu').max(200),
+    name: z.string().min(2, 'Numele trebuie să aibă minim 2 caractere').max(100),
+    phone: z.string().min(7, 'Numărul de telefon trebuie să aibă minim 7 caractere').max(35, 'Numărul de telefon este prea lung'),
+    email: z.string().email('Format email invalid').optional().or(z.literal('')),
+    message: z.string().max(2000, 'Mesajul este prea lung').optional(),
+    source_url: z.string().url().optional(),
+});
+
+>>>>>>> Stashed changes
 export type LeadInquiry = {
     car_id: string;
     car_name: string;
@@ -13,21 +26,25 @@ export type LeadInquiry = {
     phone: string;
     email?: string;
     message?: string;
+    source_url?: string;
 };
 
 export async function submitLeadInquiry(data: LeadInquiry) {
+    console.log('Server Action: submitLeadInquiry received:', data);
+
     // Rate limiting: 5 submissions per minute per phone number
     const identifier = `lead:${data.phone.replace(/\D/g, '')}`;
-    const rateCheck = checkRateLimit(identifier, { limit: 5, windowMs: 60000 });
+    const rateCheck = checkRateLimit(identifier, { limit: 10, windowMs: 60000 }); // Relaxed limit
 
     if (!rateCheck.success) {
         return {
             success: false,
-            error: 'Too many submissions. Please wait a minute and try again.',
+            error: 'Prea multe încercări. Te rugăm să aștepți un minut.',
             rateLimited: true
         };
     }
 
+<<<<<<< Updated upstream
     const supabase = await createClient();
 
     const { error } = await supabase.from('leads_inquiries').insert({
@@ -37,12 +54,35 @@ export async function submitLeadInquiry(data: LeadInquiry) {
         phone: data.phone,
         email: data.email || null,
         message: data.message || null,
+=======
+    const parsed = LeadInquirySchema.safeParse(data);
+    if (!parsed.success) {
+        const fieldErrors = parsed.error.flatten().fieldErrors;
+        const errorMsg = Object.entries(fieldErrors)
+            .map(([field, msgs]) => `${field}: ${msgs?.join(', ')}`)
+            .join(' | ');
+        console.error('Validation failed for lead inquiry:', errorMsg, data);
+        return { success: false, error: `Eroare date: ${errorMsg}` };
+    }
+    const validData = parsed.data;
+
+    const supabase = await createClient();
+
+    const { error } = await supabase.from('leads_inquiries').insert({
+        car_id: validData.car_id,
+        car_name: validData.car_name,
+        name: validData.name,
+        phone: validData.phone,
+        email: validData.email || null,
+        message: validData.message || null,
+        source_url: validData.source_url || null,
+>>>>>>> Stashed changes
         created_at: new Date().toISOString(),
     });
 
     if (error) {
-        console.error('Lead submission error:', error);
-        return { success: false, error: error.message };
+        console.error('Database insertion error:', error);
+        return { success: false, error: `Eroare baze de date: ${error.message}` };
     }
 
     // Trigger notifications in background

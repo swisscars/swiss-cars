@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from '@/i18n/navigation';
 import CarCard from '@/components/cars/CarCard';
 import type { Car } from '@/lib/types';
 import styles from './CarsGrid.module.css';
@@ -96,9 +97,9 @@ export default function CarsGrid({ cars, showViewAll = true, hideHeader = false 
                 {/* View All Button */}
                 {showViewAll && (
                     <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px' }}>
-                        <a href="/inventory" className="btn btn-primary">
+                        <Link href="/inventory" className="btn btn-primary">
                             {t('view_all_inventory') || 'View All Inventory'}
-                        </a>
+                        </Link>
                     </div>
                 )}
             </div>

@@ -29,7 +29,13 @@
         "view_details": "Подробнее",
         "no_cars": "Нет доступных автомобилей",
         "view_all_inventory": "Весь Сток",
+<<<<<<< Updated upstream
         "all_cars_title": "Все Автомобили"
+=======
+        "all_cars_title": "Все Автомобили",
+        "cars_available": "{count} автомобилей в наличии",
+        "sold": "Продано"
+>>>>>>> Stashed changes
     },
     "about": {
         "subtitle": "Добро пожаловать на официальный сайт SwissCars.md",
@@ -39,6 +45,7 @@
         "advantage2": "Безопасность",
         "advantage3": "Профессионализм",
         "years_experience": "Лет опыта",
+        "cars_delivered": "Доставлено авто",
         "guaranteed": "Гарантировано",
         "every_step": "На каждом шагу",
         "mission_title": "Страсть к автомобильному совершенству",
@@ -220,7 +227,26 @@
         "contact_form_subtitle": "Мы быстро свяжемся с вами для уточнения деталей и наличия.",
         "leasing_title": "Доступно финансирование",
         "leasing_text": "Этот автомобиль можно приобрести в лизинг с первоначальным взносом от 10%. Свяжитесь с нами для индивидуального предложения.",
+<<<<<<< Updated upstream
         "leasing_cta": "Калькулятор лизинга"
+=======
+        "leasing_cta": "Калькулятор лизинга",
+        "similar_cars_subtitle": "Вам может понравиться",
+        "similar_cars_title": "Похожие автомобили",
+        "contact_sidebar_title": "Отправить запрос",
+        "contact_sidebar_subtitle": "Мы быстро свяжемся с вами для уточнения деталей и наличия.",
+        "form_separator": "или отправьте запрос",
+        "form_success_title": "Запрос успешно отправлен!",
+        "form_success_text": "Мы свяжемся с вами в ближайшее время.",
+        "form_name_placeholder": "Ваше имя *",
+        "form_phone_placeholder": "Номер телефона *",
+        "form_email_placeholder": "Email (необязательно)",
+        "form_message_placeholder": "Сообщение (необязательно) — напр.: Я заинтересован в {carName}...",
+        "form_loading": "Отправка...",
+        "form_submit": "Отправить запрос",
+        "whatsapp_message": "Здравствуйте! Меня интересует: {carName}",
+        "sold": "Продано"
+>>>>>>> Stashed changes
     },
     "errors": {
         "required_fields": "Заполните Имя и Телефон.",

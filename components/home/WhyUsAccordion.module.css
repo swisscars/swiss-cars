@@ -12,6 +12,17 @@
 @media (max-width: 768px) {
     .grid {
         grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .grid div:first-child {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .grid :global(.ui-decor) {
+        margin: 0 auto !important;
     }
 
     .visual {
